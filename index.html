@@ -2,7 +2,7 @@
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><title>DIVISION AP — Control Center</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
-:root{--bg:#080808;--panel:#12110e;--panel2:#191711;--gold:#d6a044;--gold2:#f2c66d;--bronze:#9b6235;--silver:#c8cbd0;--red:#e04b43;--green:#59c58a;--muted:#918b80;--line:#d6a04435;--shadow:0 12px 34px #0009}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a2814 0,transparent 38%),var(--bg);color:#f3f0e9;font-family:Inter,Arial,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}aside{background:linear-gradient(180deg,#11100d,#090909);border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px;border-bottom:1px solid var(--line)}.brand img{width:54px;height:54px;object-fit:contain;border-radius:10px}.brand strong{font:900 23px 'Barlow Condensed';letter-spacing:1px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:2px;margin-top:4px}.navlabel{font-size:9px;letter-spacing:2px;color:#716b60;margin:22px 10px 8px;font-weight:800}.nav button{display:flex;align-items:center;gap:10px;width:100%;border:1px solid transparent;background:transparent;color:#aaa69e;padding:10px 12px;border-radius:8px;text-align:left;margin:3px 0;font-weight:650;font-size:12px}.nav button:hover,.nav button.active{color:#f8d48f;background:linear-gradient(90deg,#d6a04420,transparent);border-color:#d6a04435}.nav .ico{width:18px;color:var(--gold)}.asidefoot{position:absolute;bottom:16px;left:18px;right:18px;color:#625e56;font-size:9px;line-height:1.6}main{padding:24px clamp(14px,2.8vw,38px) 44px;max-width:1500px;width:100%;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.eyebrow{color:var(--gold);font-size:9px;letter-spacing:2px;font-weight:800}h1,h2,h3,p{margin-top:0}h1{font:900 clamp(29px,3.5vw,42px)/.98 'Barlow Condensed';letter-spacing:1px;margin:6px 0 0}h2{font:800 25px 'Barlow Condensed';letter-spacing:.6px;margin:0 0 5px;text-transform:uppercase}h3{font-size:14px;margin-bottom:9px}.sub{color:var(--muted);font-size:10px;line-height:1.55}.pill,.tag{border:1px solid var(--line);color:var(--gold2);background:#d6a04412;border-radius:99px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.7px}.page{display:none;animation:in .25s}.page.active{display:block}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.grid{display:grid;gap:13px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:17px 0}.card{background:linear-gradient(145deg,#191814,#0e0e0d);border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--shadow);min-width:0}.statlabel{color:#99948a;font-size:9px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800}.statvalue{font:800 29px 'Barlow Condensed';margin-top:7px;overflow-wrap:anywhere}.gold{color:var(--gold2)}.green{color:var(--green)}.red{color:var(--red)}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:13px}.herobanner{min-height:215px;background:linear-gradient(110deg,#17130d,#111 55%,#20170b);border:1px solid #9b713b55;border-radius:14px;padding:24px;display:flex;align-items:center;position:relative;overflow:hidden}.herobanner:after{content:"";position:absolute;inset:0;background:url('https://i.imgur.com/G32FLG1.png') 85% center/auto 90% no-repeat;opacity:.14}.heroText{position:relative;z-index:1;max-width:450px}.heroText h2{font-size:34px;line-height:1;margin:9px 0}.heroText p{color:#aaa49a;font-size:10px;max-width:340px;line-height:1.6}.quick{display:flex;flex-direction:column;justify-content:space-between}.quick .big{font:900 28px 'Barlow Condensed';color:var(--gold2);overflow-wrap:anywhere}.btn{border:1px solid #d6a04488;color:#17120a;background:linear-gradient(135deg,#f2ca78,#b77a2b);padding:10px 14px;border-radius:7px;font-weight:900;font-size:9px;letter-spacing:.7px;text-transform:uppercase}.btn.secondary{background:#171612;color:var(--gold2);border-color:var(--line)}.btn.danger{background:linear-gradient(135deg,#e66b5e,#8f2624);color:white;border-color:#e66b5e}.btn.ghost{background:transparent;color:#aaa;border-color:#444}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:18px 0 10px}.roomgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.room{cursor:pointer;transition:.2s}.room:hover{transform:translateY(-2px);border-color:#d6a04488}.roomcode{font:800 20px 'Barlow Condensed';letter-spacing:2px;color:var(--gold2)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:9px;color:#bdb7ab;text-transform:uppercase;letter-spacing:1px;font-weight:800}input,select,textarea{width:100%;min-width:0;background:#090909;border:1px solid #49402f;border-radius:7px;color:#f2eee6;padding:9px 10px;outline:none;font-size:12px}input:focus,select:focus,textarea:focus{border-color:var(--gold)}.playerlist{display:grid;gap:7px}.player{display:flex;align-items:center;gap:10px;background:#0b0b0a;border:1px solid #30291e;padding:8px;border-radius:8px;min-width:0}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#d6a044,#6f431d);color:#130e07;font-weight:900;overflow:hidden;flex:none}.avatar img{width:100%;height:100%;object-fit:cover}.meta{flex:1;min-width:0}.meta b{font-size:11px;overflow-wrap:anywhere}.meta small{display:block;color:#817b70;font-size:9px;margin-top:3px}.resultbox{border:1px solid var(--line);border-radius:10px;padding:13px;background:#0b0b0a;margin-top:12px}.resultrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #29251e;font-size:10px}.resultrow:last-child{border:0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:10px;min-width:520px}th,td{text-align:left;padding:10px 9px;border-bottom:1px solid #2b261e;white-space:nowrap}th{color:#8e877b;font-size:9px;letter-spacing:1px;text-transform:uppercase}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.tabs button{background:#111;border:1px solid #393125;color:#aaa;padding:8px 11px;border-radius:7px;font-size:9px;font-weight:800}.tabs button.active{background:#d6a04420;color:var(--gold2);border-color:#d6a04488}.rankbanner{min-height:clamp(118px,28vw,190px);border:1px solid #b98536;border-radius:13px;margin:0 0 12px;padding:clamp(14px,3vw,24px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#080808 0%,#171109 52%,#090909);box-shadow:inset 0 0 45px #000b}.rankbanner .rank-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.72}.rankbanner:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#080808ee 0%,#08080888 48%,#08080822 100%)}.rankbanner .ranktext{position:relative;z-index:1}.rankbanner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#090909ee 0%,#09090977 55%,#09090920)}.rankbanner .ranktext{position:relative;z-index:1}.rankbanner h2{font:900 clamp(38px,6vw,64px)/.9 'Barlow Condensed';letter-spacing:2px;margin:8px 0;text-shadow:0 3px 20px #000}.rankbanner p{color:#d0c3a9;font-size:10px;letter-spacing:3px;margin:0}.rankavatar{width:32px;height:32px}.rankname{display:flex;align-items:center;gap:8px}.ranknum{font:900 19px 'Barlow Condensed';color:var(--gold2)}.empty{padding:24px;text-align:center;color:#777;font-size:10px;border:1px dashed #403727;border-radius:9px}.modalback{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;padding:14px;z-index:20}.modalback.show{display:flex}.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#1a1813,#0b0b0a);border:1px solid #b88945;border-radius:14px;padding:19px;box-shadow:0 0 50px #d6a04422}.close{float:right;background:transparent;border:0;color:#aaa;font-size:22px}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,15px);background:#211a0e;border:1px solid var(--gold);padding:11px 15px;border-radius:8px;color:#f6d58f;font-size:10px;opacity:0;pointer-events:none;transition:.2s;z-index:40}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:900px){.app{grid-template-columns:1fr}aside{height:auto;position:relative;padding:10px 12px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 4px 9px}.brand img{width:40px;height:40px}.brand strong{font-size:20px}.nav{display:flex;overflow:auto;gap:3px}.navlabel,.asidefoot{display:none}.nav button{width:auto;white-space:nowrap;padding:8px 10px;font-size:10px}.nav .ico{display:none}main{padding-top:17px}.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.roomgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.roomgrid,.formgrid{grid-template-columns:1fr}.herobanner{padding:19px;min-height:195px}.heroText h2{font-size:30px}.topbar{align-items:flex-start}.topbar .pill{font-size:8px}.sectionhead{align-items:flex-start;flex-direction:column}.rankbanner{min-height:150px;padding:18px}.rankbanner p{letter-spacing:1.5px}}
+:root{--bg:#080808;--panel:#12110e;--panel2:#191711;--gold:#d6a044;--gold2:#f2c66d;--bronze:#9b6235;--silver:#c8cbd0;--red:#e04b43;--green:#59c58a;--muted:#918b80;--line:#d6a04435;--shadow:0 12px 34px #0009}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a2814 0,transparent 38%),var(--bg);color:#f3f0e9;font-family:Inter,Arial,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}aside{background:linear-gradient(180deg,#11100d,#090909);border-right:1px solid var(--line);padding:18px 14px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px;border-bottom:1px solid var(--line)}.brand img{width:54px;height:54px;object-fit:contain;border-radius:10px}.brand strong{font:900 23px 'Barlow Condensed';letter-spacing:1px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:2px;margin-top:4px}.navlabel{font-size:9px;letter-spacing:2px;color:#716b60;margin:22px 10px 8px;font-weight:800}.nav button{display:flex;align-items:center;gap:10px;width:100%;border:1px solid transparent;background:transparent;color:#aaa69e;padding:10px 12px;border-radius:8px;text-align:left;margin:3px 0;font-weight:650;font-size:12px}.nav button:hover,.nav button.active{color:#f8d48f;background:linear-gradient(90deg,#d6a04420,transparent);border-color:#d6a04435}.nav .ico{width:18px;color:var(--gold)}.asidefoot{position:absolute;bottom:16px;left:18px;right:18px;color:#625e56;font-size:9px;line-height:1.6}main{padding:24px clamp(14px,2.8vw,38px) 44px;max-width:1500px;width:100%;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.eyebrow{color:var(--gold);font-size:9px;letter-spacing:2px;font-weight:800}h1,h2,h3,p{margin-top:0}h1{font:900 clamp(29px,3.5vw,42px)/.98 'Barlow Condensed';letter-spacing:1px;margin:6px 0 0}h2{font:800 25px 'Barlow Condensed';letter-spacing:.6px;margin:0 0 5px;text-transform:uppercase}h3{font-size:14px;margin-bottom:9px}.sub{color:var(--muted);font-size:10px;line-height:1.55}.pill,.tag{border:1px solid var(--line);color:var(--gold2);background:#d6a04412;border-radius:99px;padding:7px 10px;font-size:9px;font-weight:800;letter-spacing:.7px}.page{display:none;animation:in .25s}.page.active{display:block}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.grid{display:grid;gap:13px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:17px 0}.card{background:linear-gradient(145deg,#191814,#0e0e0d);border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--shadow);min-width:0}.statlabel{color:#99948a;font-size:9px;text-transform:uppercase;letter-spacing:1.2px;font-weight:800}.statvalue{font:800 29px 'Barlow Condensed';margin-top:7px;overflow-wrap:anywhere}.gold{color:var(--gold2)}.green{color:var(--green)}.red{color:var(--red)}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:13px}.herobanner{min-height:215px;background:linear-gradient(110deg,#17130d,#111 55%,#20170b);border:1px solid #9b713b55;border-radius:14px;padding:24px;display:flex;align-items:center;position:relative;overflow:hidden}.herobanner:after{content:"";position:absolute;inset:0;background:url('https://i.imgur.com/G32FLG1.png') 85% center/auto 90% no-repeat;opacity:.24;mix-blend-mode:screen;filter:drop-shadow(0 0 22px #d6a04455);mask-image:linear-gradient(90deg,transparent 0%,#000 45%,#000 100%)}.heroText{position:relative;z-index:1;max-width:450px}.heroText h2{font-size:34px;line-height:1;margin:9px 0}.heroText p{color:#aaa49a;font-size:10px;max-width:340px;line-height:1.6}.quick{display:flex;flex-direction:column;justify-content:space-between}.quick .big{font:900 28px 'Barlow Condensed';color:var(--gold2);overflow-wrap:anywhere}.btn{border:1px solid #d6a04488;color:#17120a;background:linear-gradient(135deg,#f2ca78,#b77a2b);padding:10px 14px;border-radius:7px;font-weight:900;font-size:9px;letter-spacing:.7px;text-transform:uppercase}.btn.secondary{background:#171612;color:var(--gold2);border-color:var(--line)}.btn.danger{background:linear-gradient(135deg,#e66b5e,#8f2624);color:white;border-color:#e66b5e}.btn.ghost{background:transparent;color:#aaa;border-color:#444}.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:18px 0 10px}.roomgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.room{cursor:pointer;transition:.2s}.room:hover{transform:translateY(-2px);border-color:#d6a04488}.roomcode{font:800 20px 'Barlow Condensed';letter-spacing:2px;color:var(--gold2)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:9px;color:#bdb7ab;text-transform:uppercase;letter-spacing:1px;font-weight:800}input,select,textarea{width:100%;min-width:0;background:#090909;border:1px solid #49402f;border-radius:7px;color:#f2eee6;padding:9px 10px;outline:none;font-size:12px}input:focus,select:focus,textarea:focus{border-color:var(--gold)}.playerlist{display:grid;gap:7px}.player{display:flex;align-items:center;gap:10px;background:#0b0b0a;border:1px solid #30291e;padding:8px;border-radius:8px;min-width:0}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#d6a044,#6f431d);color:#130e07;font-weight:900;overflow:hidden;flex:none}.avatar img{width:100%;height:100%;object-fit:cover}.meta{flex:1;min-width:0}.meta b{font-size:11px;overflow-wrap:anywhere}.meta small{display:block;color:#817b70;font-size:9px;margin-top:3px}.resultbox{border:1px solid var(--line);border-radius:10px;padding:13px;background:#0b0b0a;margin-top:12px}.resultrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #29251e;font-size:10px}.resultrow:last-child{border:0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:10px;min-width:520px}th,td{text-align:left;padding:10px 9px;border-bottom:1px solid #2b261e;white-space:nowrap}th{color:#8e877b;font-size:9px;letter-spacing:1px;text-transform:uppercase}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.tabs button{background:#111;border:1px solid #393125;color:#aaa;padding:8px 11px;border-radius:7px;font-size:9px;font-weight:800}.tabs button.active{background:#d6a04420;color:var(--gold2);border-color:#d6a04488}.rankbanner{min-height:clamp(118px,28vw,190px);border:1px solid #b98536;border-radius:13px;margin:0 0 12px;padding:clamp(14px,3vw,24px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#080808 0%,#171109 52%,#090909);box-shadow:inset 0 0 45px #000b}.rankbanner .rank-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.72}.rankbanner:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#080808ee 0%,#08080888 48%,#08080822 100%)}.rankbanner .ranktext{position:relative;z-index:1}.rankbanner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#090909ee 0%,#09090977 55%,#09090920)}.rankbanner .ranktext{position:relative;z-index:1}.rankbanner h2{font:900 clamp(38px,6vw,64px)/.9 'Barlow Condensed';letter-spacing:2px;margin:8px 0;text-shadow:0 3px 20px #000}.rankbanner p{color:#d0c3a9;font-size:10px;letter-spacing:3px;margin:0}.rankavatar{width:32px;height:32px}.rankname{display:flex;align-items:center;gap:8px}.ranknum{font:900 19px 'Barlow Condensed';color:var(--gold2)}.empty{padding:24px;text-align:center;color:#777;font-size:10px;border:1px dashed #403727;border-radius:9px}.modalback{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;padding:14px;z-index:20}.modalback.show{display:flex}.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#1a1813,#0b0b0a);border:1px solid #b88945;border-radius:14px;padding:19px;box-shadow:0 0 50px #d6a04422}.close{float:right;background:transparent;border:0;color:#aaa;font-size:22px}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,15px);background:#211a0e;border:1px solid var(--gold);padding:11px 15px;border-radius:8px;color:#f6d58f;font-size:10px;opacity:0;pointer-events:none;transition:.2s;z-index:40}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:900px){.app{grid-template-columns:1fr}aside{height:auto;position:relative;padding:10px 12px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 4px 9px}.brand img{width:40px;height:40px}.brand strong{font-size:20px}.nav{display:flex;overflow:auto;gap:3px}.navlabel,.asidefoot{display:none}.nav button{width:auto;white-space:nowrap;padding:8px 10px;font-size:10px}.nav .ico{display:none}main{padding-top:17px}.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.roomgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.roomgrid,.formgrid{grid-template-columns:1fr}.herobanner{padding:19px;min-height:195px}.heroText h2{font-size:30px}.topbar{align-items:flex-start}.topbar .pill{font-size:8px}.sectionhead{align-items:flex-start;flex-direction:column}.rankbanner{min-height:150px;padding:18px}.rankbanner p{letter-spacing:1.5px}}
 
 /* Ajustes mobile: banner incorporado e ranking sem zoom horizontal. */
 @media(max-width:900px){
@@ -19,18 +19,17 @@
 @media(max-width:380px){main{padding-left:9px;padding-right:9px}.rankbanner{min-height:118px;padding:12px}#ranking .tablewrap{padding:5px}#ranking th,#ranking td{padding:8px 2px}.rankavatar{width:23px;height:23px}.rankname{gap:4px}#ranking .tabs button{padding:7px 7px;font-size:7px}}
 
 .authgate{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% -20%,#3a2814 0,transparent 48%),#080808;display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}.authcard{width:min(440px,100%);background:linear-gradient(145deg,#191814,#0e0e0d);border:1px solid #d6a04470;border-radius:16px;padding:24px;box-shadow:0 18px 60px #000c}.authbrand{text-align:center;margin-bottom:20px}.authbrand img{width:72px;height:72px;object-fit:contain}.authbrand h1{font-size:38px;color:#f2c66d}.auth-tabs{display:flex;gap:8px;margin:16px 0}.auth-tabs button{flex:1;background:#111;border:1px solid #393125;color:#aaa;padding:10px;border-radius:7px;font-size:11px;font-weight:800}.auth-tabs button.active{background:#d6a04420;color:#f2c66d;border-color:#d6a044}.auth-msg{font-size:11px;line-height:1.5;color:#f2c66d;min-height:18px;margin:10px 0}.auth-actions{display:grid;gap:9px}.auth-actions .btn{width:100%;padding:13px}.auth-hidden{display:none!important}.app{visibility:hidden}.app.auth-ready{visibility:visible}.account-pill{display:flex;align-items:center;gap:8px}.account-pill button{font-size:9px}
-</style></head><body><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="division-rank-reference.png" alt="DIVISION AP"><div class="eyebrow">CONTROL CENTER</div><h1>DIVISION AP</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
+</style></head><body><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/G32FLG1.png" alt="Grifo DIVISION AP"><div class="eyebrow">CONTROL CENTER</div><h1>DIVISION AP</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app"><aside><div class="brand"><img src="https://i.imgur.com/G32FLG1.png" alt="Grifo DIVISION AP"><div><strong>DIVISION AP</strong><small>CONTROL CENTER</small></div></div><div class="navlabel">MENU PRINCIPAL</div><nav class="nav"><button class="active" data-page="home"><span class="ico">⌂</span>Visão geral</button><button data-page="rooms"><span class="ico">▦</span>Salas</button><button data-page="ranking"><span class="ico">♛</span>DIVISION RANK</button><button data-page="players"><span class="ico">◉</span>Jogadores</button><button data-page="profile"><span class="ico">◈</span>Meu perfil</button></nav><div class="asidefoot">DIVISION AP • SISTEMA DE GERENCIAMENTO<br>Saldos virtuais internos à plataforma.</div></aside><main><div class="topbar"><div><div class="eyebrow">GRIFFIN DIVISION / OPERATIONS</div><h1 id="pageTitle">CENTRAL DE COMANDO</h1></div><div class="pill">● SISTEMA ONLINE</div></div>
 <section class="page active" id="home"><div class="hero"><div class="herobanner"><div class="heroText"><div class="eyebrow">A ARENA É SUA</div><h2>DOMINE A<br><span class="gold">DIVISION.</span></h2><p>Gerencie suas salas, acompanhe resultados e construa seu legado. Cada partida conta.</p><div class="btnrow"><button class="btn" onclick="openCreate()">＋ CRIAR SALA</button><button class="btn secondary" onclick="showPage('rooms')">ENTRAR COM CÓDIGO</button></div></div></div><div class="card quick"><div><div class="statlabel">SEU SALDO VIRTUAL</div><div class="big" id="homeBalance">R$ 0,00</div><div class="sub">Resultado acumulado no DIVISION AP</div></div><div><div class="statlabel">WIN RATE</div><div class="big" id="homeRate">0%</div><div class="sub" id="homeMatches">0 partidas disputadas</div></div></div></div><div class="grid stats"><div class="card"><div class="statlabel">PARTIDAS</div><div class="statvalue" id="statMatches">0</div></div><div class="card"><div class="statlabel">VITÓRIAS / WIN</div><div class="statvalue green" id="statWins">0</div></div><div class="card"><div class="statlabel">LUCROS</div><div class="statvalue gold" id="statProfit">R$ 0,00</div></div><div class="card"><div class="statlabel">PREJUÍZOS</div><div class="statvalue red" id="statLoss">R$ 0,00</div></div></div><div class="sectionhead"><div><div class="eyebrow">ACESSO RÁPIDO</div><h2>Suas operações</h2></div></div><div class="grid roomgrid" id="homeRooms"></div></section>
-<section class="page" id="rooms"><div class="card"><div class="sectionhead" style="margin-top:0"><div><div class="eyebrow">LOBBY / MATCHMAKING</div><h2>Salas de AP</h2><div class="sub">Crie uma sala ou entre usando o código de cinco dígitos.</div></div><button class="btn" onclick="openCreate()">＋ CRIAR SALA</button></div><div class="formgrid"><div class="field"><label>Código da sala</label><input id="joinCode" maxlength="6" inputmode="numeric" placeholder="Ex.: A8K2QZ"></div><div class="field"><label>Seu nick</label><input id="joinNick" maxlength="24" placeholder="Digite seu nick"></div></div><div class="btnrow"><button class="btn secondary" onclick="joinRoom()">ENTRAR NA SALA</button></div></div></section>
-<section class="page" id="ranking"><div class="rankbanner"><img class="rank-art" src="https://i.imgur.com/Hj8BTnt.jpeg" alt="Banner DIVISION RANK" onerror="this.onerror=null;this.src='division-rank-banner.png'"><div class="ranktext"><div class="eyebrow">GRIFFIN DIVISION / HALL OF FAME</div><h2>DIVISION <span class="gold">RANK</span></h2><p>OS MELHORES DA DIVISION AP</p></div></div><p class="sub">Classificações calculadas a partir das partidas registradas.</p><div class="tabs"><button class="active" data-rank="positive">SALDO POSITIVO</button><button data-rank="negative">SALDO NEGATIVO</button><button data-rank="wins">+ WIN</button><button data-rank="losses">- WIN</button></div><div class="card tablewrap"><table><thead><tr><th>Posição</th><th>Jogador</th><th>Partidas</th><th>Resultado</th></tr></thead><tbody id="rankRows"></tbody></table></div></section>
+<section class="page" id="rooms"><div class="card"><div class="sectionhead" style="margin-top:0"><div><div class="eyebrow">LOBBY / MATCHMAKING</div><h2>Salas de AP</h2><div class="sub">Crie uma sala ou entre usando o código alfanumérico de seis caracteres.</div></div><button class="btn" onclick="openCreate()">＋ CRIAR SALA</button></div><div class="formgrid"><div class="field"><label>Código da sala</label><input id="joinCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ex.: A8K2QZ"></div><div class="field"><label>Seu nick</label><input id="joinNick" maxlength="24" placeholder="Digite seu nick"></div></div><div class="btnrow"><button class="btn secondary" onclick="joinRoom()">ENTRAR NA SALA</button></div></div><div class="sectionhead"><div><div class="eyebrow">ACTIVE OPERATIONS</div><h2>Suas salas</h2></div></div><div class="grid roomgrid" id="roomList"></div></section>
+<section class="page" id="ranking"><div class="rankbanner"><img class="rank-art" src="https://i.imgur.com/Hj8BTnt.jpeg" alt="Banner DIVISION RANK" onerror="this.style.display='none'"><div class="ranktext"><div class="eyebrow">GRIFFIN DIVISION / HALL OF FAME</div><h2>DIVISION <span class="gold">RANK</span></h2><p>OS MELHORES DA DIVISION AP</p></div></div><p class="sub">Classificações calculadas a partir das partidas registradas.</p><div class="tabs"><button class="active" data-rank="positive">SALDO POSITIVO</button><button data-rank="negative">SALDO NEGATIVO</button><button data-rank="wins">+ WIN</button><button data-rank="losses">- WIN</button></div><div class="card tablewrap"><table><thead><tr><th>Posição</th><th>Jogador</th><th>Partidas</th><th>Resultado</th></tr></thead><tbody id="rankRows"></tbody></table></div></section>
 <section class="page" id="players"><div class="eyebrow">ROSTER / COMMUNITY</div><h2>Jogadores</h2><p class="sub">Perfis públicos e estatísticas dos participantes registrados.</p><div class="card"><div class="eyebrow">PLAYER DIRECTORY</div><h3>Perfis registrados</h3><p class="sub">Novos perfis são criados quando alguém entra em uma sala ou configura seu próprio perfil.</p></div><div class="grid roomgrid" id="playerCards" style="margin-top:13px"></div></section>
 <section class="page" id="profile"><div class="eyebrow">PLAYER IDENTITY</div><h2>Meu perfil</h2><p class="sub">Personalize sua identidade competitiva.</p><div class="card"><div class="formgrid"><div class="field"><label>Nome / nick</label><input id="profileName" maxlength="24"></div><div class="field"><label>Foto pessoal</label><input type="file" id="profilePicFile" accept="image/*"><div id="profilePicPreview" class="avatar" style="width:64px;height:64px">GL</div><small class="sub">Sua foto aparece no perfil, jogadores, salas e ranking.</small></div><div class="field" style="grid-column:1/-1"><label>Bio</label><textarea id="profileBio" rows="3" placeholder="Conte um pouco sobre você..."></textarea></div></div><div class="btnrow"><button class="btn" onclick="saveProfile()">SALVAR PERFIL</button><button class="btn danger" type="button" onclick="logoutAccount()">SAIR DA CONTA</button></div></div><div class="grid stats"><div class="card"><div class="statlabel">PARTIDAS</div><div class="statvalue" id="pMatches">0</div></div><div class="card"><div class="statlabel">WINS</div><div class="statvalue green" id="pWins">0</div></div><div class="card"><div class="statlabel">WIN RATE</div><div class="statvalue gold" id="pRate">0%</div></div><div class="card"><div class="statlabel">SALDO</div><div class="statvalue" id="pBalance">R$ 0,00</div></div></div></section></main></div>
 <div class="modalback" id="modal"><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-functions-compat.js"></script>
 <script>
 'use strict';const KEY='division_ap_v2';const LEGACY='division_ap_v1';const RESET_MARK='division_ap_test_reset_20261031';let db=loadDB();let pendingProfilePic=null;
 function fresh(){return {me:'Meu perfil',players:[{name:'Meu perfil',pic:'',bio:'',matches:0,wins:0,losses:0,balance:0,profit:0,loss:0,balanceCents:0,profitCents:0,lossCents:0}],rooms:[]}}
@@ -127,6 +126,7 @@ async function enterAuthenticatedApp(user){
  listenRanking();await refreshMyRooms();render();showRoomListRemoved();toast('Bem-vindo ao DIVISION AP.');
  }catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Verifique as regras do Firestore.');await auth.signOut();currentUser=null;cloudReady=false;}
 }
+function showRoomListRemoved(){} // O container da lista agora faz parte da interface de salas.
 function stopRoomListener(){if(roomUnsub){roomUnsub();roomUnsub=null;}activeRoomCode=null;}
 function listenRanking(){
  if(rankUnsub)rankUnsub();
@@ -228,4 +228,319 @@ async function loadPrivateProfileStats(){
 showRoomListRemoved();
 
 render();
+
+/* DIVISION AP — correções integradas de compatibilidade, salas e perfis */
+
+let pendingSetupData=null;
+async function confirmSetup(code) {
+  const apCents=parseCents(document.getElementById('apValue')?.value);
+  const feeCents=parseCents(document.getElementById('apFee')?.value);
+  if(!Number.isSafeInteger(apCents)||!Number.isSafeInteger(feeCents))return toast('Informe valores válidos.');
+  try {
+    const snap=await roomsCol().doc(code).get();if(!snap.exists)return toast('Sala não encontrada.');
+    const r=snap.data();
+    if(r.creatorUid!==currentUser.uid||r.status!=='waiting'||r.current||r.players.length!==r.size)
+      return toast('A sala não está disponível para configuração.');
+    const host=r.history.length===0?document.getElementById('apHost')?.value:null;
+    if(host && !r.players.some(p=>p.name===host))return toast('HOST inválido.');
+    pendingSetupData={code,apCents,feeCents,host:host||null};
+    openModal(`<div class="eyebrow">FINAL CHECK</div><h2>Confirmar partida</h2>
+      <div class="resultbox"><div class="resultrow"><span>Modalidade</span><b>X${r.size}</b></div>
+      <div class="resultrow"><span>Valor AP</span><b>${moneyC(apCents)}</b></div>
+      <div class="resultrow"><span>Juros</span><b>${moneyC(feeCents)}</b></div>
+      <div class="resultrow"><span>HOST</span><b>${esc(host||'Não existe após a 1ª rodada')}</b></div></div>
+      <div class="btnrow"><button class="btn" onclick="startMatch('${esc(code)}')">CONFIRMAR E INICIAR</button>
+      <button class="btn ghost" onclick="configure('${esc(code)}')">VOLTAR</button></div>`);
+  } catch(e){console.error(e);toast('Não foi possível validar a configuração.')}
+}
+async function startMatch(code) {
+  const setup=pendingSetupData;
+  if(!setup||setup.code!==code)return toast('Revise a configuração antes de iniciar.');
+  const ref=roomsCol().doc(code);
+  try {
+    await firestore.runTransaction(async tx=>{
+      const s=await tx.get(ref);if(!s.exists)throw Error('Sala inexistente.');
+      const r=s.data();
+      if(r.creatorUid!==currentUser.uid||r.status!=='waiting'||r.current||r.players.length!==r.size)throw Error('Sala não está pronta.');
+      const host=r.history.length===0?setup.host:null;
+      if(r.history.length>0&&setup.host)throw Error('HOST só pode ser definido na primeira rodada.');
+      if(host&&!r.players.some(p=>p.name===host))throw Error('HOST inválido.');
+      tx.update(ref,{current:{apCents:setup.apCents,feeCents:setup.feeCents,host},
+        lastAp:setup.apCents,lastFee:setup.feeCents,lastHost:host,
+        updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+    });
+    pendingSetupData=null;openRoom(code);toast('AP iniciado.');
+  } catch(e){console.error(e);toast(e.message||'Não foi possível iniciar a partida.')}
+}
+
+let myRoomsUnsub = null, publicProfilesUnsub = null;
+
+function normalizePlayer(p, fallbackName='Jogador') {
+  const x=p&&typeof p==='object'?p:{};
+  const name=cleanNick(x.name||x.nick||fallbackName)||fallbackName;
+  const matches=Number(x.matches??x.totalMatches??0)||0;
+  const wins=Number(x.wins??x.totalWins??0)||0;
+  const losses=Number(x.losses??x.totalLosses??Math.max(0,matches-wins))||0;
+  const balanceCents=Number.isSafeInteger(x.balanceCents)?x.balanceCents:Math.round(Number(x.balance??x.saldo??0)*100);
+  const profitCents=Number.isSafeInteger(x.profitCents)?x.profitCents:Math.round(Number(x.profit??x.lucro??0)*100);
+  const lossCents=Number.isSafeInteger(x.lossCents)?x.lossCents:Math.round(Number(x.loss??x.prejuizo??0)*100);
+  return {...x,name,pic:x.pic||x.photoURL||x.photo||'',bio:x.bio||x.biography||'',matches,wins,losses,
+    balanceCents,profitCents,lossCents,balance:balanceCents/100,profit:profitCents/100,loss:lossCents/100};
+}
+function normalizeWorkspace(state) {
+  const s=state&&typeof state==='object'?state:fresh();
+  const players=Array.isArray(s.players)?s.players.map(p=>normalizePlayer(p)):[];
+  const me=cleanNick(s.me||players[0]?.name||'Jogador');
+  if(!players.length)players.push(normalizePlayer({name:me}));
+  if(!players.some(p=>p.name===me))players.unshift(normalizePlayer({name:me}));
+  return {...s,me,players,rooms:Array.isArray(s.rooms)?s.rooms:[]};
+}
+function upsertLocalPlayer(profile) {
+  const nick=cleanNick(profile?.nick||profile?.name||db.me||'Jogador');
+  let p=db.players.find(x=>x.name===nick);
+  if(!p) {
+    // A conta privada pertence a um UID: reaproveita o jogador principal antigo,
+    // mantendo saldo e estatísticas em vez de criar um perfil vazio duplicado.
+    const legacyMain=db.players.find(x=>x.name===db.me);
+    const placeholder=db.players.find(x=>x.name==='Meu perfil'&&!x.matches&&!x.pic&&!x.bio);
+    p=legacyMain||placeholder||normalizePlayer({name:nick});
+    if(!db.players.includes(p))db.players.push(p);
+    p.name=nick;
+  }
+  p.name=nick;
+  if(profile?.pic&&!p.pic)p.pic=profile.pic;
+  if(profile?.bio&&!p.bio)p.bio=profile.bio;
+  for(const key of ['matches','wins','losses','balance','profit','loss','balanceCents','profitCents','lossCents'])
+    if(profile?.[key]!==undefined && (p[key]===undefined || p[key]===0))p[key]=profile[key];
+  Object.assign(p,normalizePlayer(p,nick));
+  db.me=nick;return p;
+}
+async function loadCloudState() {
+  const uid=currentUser.uid, workspaceRef=firestore.collection('workspaces').doc(uid);
+  const [workspaceSnap,userSnap,publicSnap]=await Promise.all([
+    workspaceRef.get(),firestore.collection('users').doc(uid).get(),profilesCol().doc(uid).get()
+  ]);
+  const userData=userSnap.exists?userSnap.data():{};
+  const publicData=publicSnap.exists?publicSnap.data():{};
+  let localRaw=null;
+  try{localRaw=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY)||'null')}catch(_){}
+  const legacyName=publicData.nick||userData.nick||userData.username||userData.name||(currentUser.email||'Jogador').split('@')[0];
+  if(workspaceSnap.exists) {
+    const cloud=workspaceSnap.data()?.state;
+    if(!cloud||!Array.isArray(cloud.players)||!Array.isArray(cloud.rooms))
+      throw Error('Workspace existente possui formato inválido; preservado sem sobrescrita.');
+    if(localRaw&&Array.isArray(localRaw.players)&&Array.isArray(localRaw.rooms)&&
+       ((localRaw.rooms||[]).length||(localRaw.players||[]).some(x=>x.matches||x.balance||x.pic||x.bio)))
+      localStorage.setItem('division_ap_backup_before_migration',JSON.stringify(localRaw));
+    db=normalizeWorkspace(cloud);
+  } else if(localRaw&&Array.isArray(localRaw.players)&&Array.isArray(localRaw.rooms)) {
+    const matchesAccount=localRaw.me===legacyName||localRaw.players.some(p=>p.name===legacyName);
+    if(matchesAccount) db=normalizeWorkspace(localRaw);
+    else if((localRaw.rooms.length||localRaw.players.some(x=>x.matches||x.balance||x.pic||x.bio)) &&
+            confirm('Encontramos dados antigos neste navegador que não correspondem claramente a esta conta. Deseja importá-los para o perfil atual? Uma cópia de segurança será mantida neste dispositivo.')) {
+      db=normalizeWorkspace(localRaw);
+      const main=db.players.find(x=>x.name===db.me)||db.players[0];
+      if(main) {main.name=legacyName;db.me=legacyName;}
+    } else {
+      if(localRaw)localStorage.setItem('division_ap_backup_before_migration',JSON.stringify(localRaw));
+      db=normalizeWorkspace({me:legacyName,players:[normalizePlayer({name:legacyName})],rooms:[]});
+    }
+  } else db=normalizeWorkspace({me:legacyName,players:[normalizePlayer({name:legacyName})],rooms:[]});
+  const p=upsertLocalPlayer({...userData,...publicData,nick:publicData.nick||userData.nick||legacyName});
+  if(!workspaceSnap.exists) {
+    await workspaceRef.set({state:db,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+  }
+  if(!userSnap.exists) {
+    await firestore.collection('users').doc(uid).set({
+      uid,nick:p.name,createdAt:firebase.firestore.FieldValue.serverTimestamp()
+    });
+  }
+  if(!publicSnap.exists)await profilesCol().doc(uid).set({
+    uid,nick:p.name,pic:p.pic||'',bio:p.bio||'',createdAt:firebase.firestore.FieldValue.serverTimestamp()
+  });
+  localStorage.setItem(KEY,JSON.stringify(db));
+}
+async function persistCloudState() {
+  if(!currentUser||!cloudReady)return;
+  const snapshot=JSON.parse(JSON.stringify(normalizeWorkspace(db)));
+  await firestore.collection('workspaces').doc(currentUser.uid).set({
+    state:snapshot,updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+  },{merge:true});
+  localStorage.setItem(KEY,JSON.stringify(snapshot));
+}
+function scheduleCloudSave() {
+  if(!currentUser||!cloudReady)return;
+  clearTimeout(cloudSaveTimer);
+  cloudSaveTimer=setTimeout(()=>persistCloudState().catch(e=>{
+    console.error('Falha ao salvar workspace',e);toast('Falha ao sincronizar. Seus dados locais foram mantidos.');
+  }),650);
+}
+function showRoomListRemoved(){} // O container da lista agora faz parte da interface de salas.
+function stopRoomListener(){if(roomUnsub){roomUnsub();roomUnsub=null;}activeRoomCode=null;}
+function renderRooms() {
+  const rooms=(window.myRooms||[]).filter(r=>r.status!=='closed');
+  const empty='<div class="empty">Nenhuma sala ativa. Crie uma sala ou entre com um código.</div>';
+  const html=rooms.map(r=>`<div class="card room" onclick="openRoom('${esc(r.code)}')">
+    <div class="eyebrow">SALA COMPARTILHADA</div><div class="roomcode">${esc(r.code)}</div>
+    <div class="sub">X${Number(r.size)||'?'} · ${(r.players||[]).length}/${Number(r.size)||'?'} jogadores</div>
+    <div class="btnrow"><span class="tag">${(r.players||[]).length===r.size?'LOBBY COMPLETO':'AGUARDANDO'}</span></div></div>`).join('')||empty;
+  const home=document.getElementById('homeRooms'),list=document.getElementById('roomList');
+  if(home)home.innerHTML=html;if(list)list.innerHTML=html;
+}
+async function refreshMyRooms() {
+  if(!currentUser)return;
+  if(myRoomsUnsub){myRoomsUnsub();myRoomsUnsub=null;}
+  myRoomsUnsub=roomsCol().where('memberUids','array-contains',currentUser.uid).onSnapshot(snap=>{
+    window.myRooms=snap.docs.map(d=>d.data()).filter(Boolean);renderRooms();
+  },err=>{console.error(err);toast('Falha ao atualizar suas salas em tempo real.')});
+}
+function renderPublicPlayers() {
+  const target=document.getElementById('playerCards');if(!target)return;
+  const stats=window.globalDivisionStats||[],profiles=Object.values(publicProfiles||{});
+  const byUid=new Map(stats.map(x=>[x.uid,x]));
+  const merged=profiles.map(pr=>{const s=byUid.get(pr.uid)||{};return {
+    name:pr.nick||s.name||'Jogador',pic:pr.pic||'',bio:pr.bio||'Competidor DIVISION AP',
+    matches:s.matches||0,wins:s.wins||0,balanceCents:s.balanceCents||0
+  }});
+  target.innerHTML=merged.map(p=>`<div class="card"><div class="player">${avatar(p)}<div class="meta"><b>${esc(p.name)}</b><small>${esc(p.bio)}</small></div></div>
+    <div class="resultrow"><span>Partidas</span><b>${p.matches}</b></div>
+    <div class="resultrow"><span>WIN RATE</span><b class="gold">${p.matches?Math.round(p.wins/p.matches*100):0}%</b></div>
+    <div class="resultrow"><span>Saldo virtual</span><b class="${p.balanceCents>=0?'green':'red'}">${signedC(p.balanceCents)}</b></div></div>`).join('')||'<div class="empty">Nenhum perfil público disponível.</div>';
+}
+function listenPublicProfiles() {
+  if(publicProfilesUnsub)publicProfilesUnsub();
+  publicProfilesUnsub=profilesCol().onSnapshot(snap=>{
+    publicProfiles={};snap.docs.forEach(d=>publicProfiles[d.id]=d.data());renderPublicPlayers();
+  },err=>{console.error(err);toast('Não foi possível carregar os perfis públicos.')});
+}
+function listenRanking() {
+  if(rankUnsub)rankUnsub();
+  rankUnsub=matchesCol().onSnapshot(snap=>{
+    const all=localStatsFromMatches(snap.docs);window.globalDivisionStats=all;
+    const mine=all.find(x=>x.uid===currentUser?.uid),p=player(db.me);
+    if(mine&&p)Object.assign(p,{matches:mine.matches,wins:mine.wins,losses:mine.losses,
+      balanceCents:mine.balanceCents,profitCents:mine.profitCents,lossCents:mine.lossCents,
+      balance:mine.balanceCents/100,profit:mine.profitCents/100,loss:mine.lossCents/100});
+    render();renderGlobalRanking();renderPublicPlayers();
+  },err=>{console.error(err);toast('Não foi possível atualizar o ranking global.')});
+}
+function renderGlobalRanking() {
+  const type=document.querySelector('[data-rank].active')?.dataset.rank||'positive';
+  const arr=[...(window.globalDivisionStats||[])];
+  arr.sort((a,b)=>type==='positive'?b.balanceCents-a.balanceCents:type==='negative'?a.balanceCents-b.balanceCents:type==='wins'?b.wins-a.wins:b.losses-a.losses);
+  const rows=document.getElementById('rankRows');if(!rows)return;
+  rows.innerHTML=arr.map((p,i)=>`<tr><td><span class="ranknum">${String(i+1).padStart(2,'0')}</span></td>
+    <td><div class="rankname">${avatar({name:p.name,pic:''},'rankavatar')}<b>${esc(p.name)}</b></div></td><td>${p.matches}</td>
+    <td class="${type==='negative'||type==='losses'?'red':'gold'}">${type==='positive'||type==='negative'?signedC(p.balanceCents):type==='wins'?p.wins:p.losses}</td></tr>`).join('')||
+    '<tr><td colspan="4">Ainda não há partidas globais registradas.</td></tr>';
+}
+async function enterAuthenticatedApp(user) {
+  currentUser=user;cloudReady=false;
+  try {
+    await loadCloudState();cloudReady=true;
+    const nickInput=document.getElementById('joinNick');if(nickInput)nickInput.value=db.me;
+    document.getElementById('authGate').classList.add('auth-hidden');
+    document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');
+    listenRanking();listenPublicProfiles();await refreshMyRooms();render();toast('Bem-vindo ao DIVISION AP.');
+  } catch(e) {
+    console.error('Falha ao inicializar conta',e);
+    authMessage('Não foi possível carregar os dados. Nenhum dado existente foi apagado; confira as permissões do Firestore.');
+    currentUser=null;cloudReady=false;if(user)await auth.signOut();
+  }
+}
+async function joinRoom() {
+  const input=document.getElementById('joinCode'),code=String(input.value||'').trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(!/^[A-Z0-9]{6}$/.test(code))return toast('Digite um código válido de 6 letras e números.');
+  if(!currentUser)return toast('Entre na sua conta primeiro.');
+  try {
+    const ref=roomsCol().doc(code);
+    await firestore.runTransaction(async tx=>{
+      const snap=await tx.get(ref);if(!snap.exists)throw Error('NOT_FOUND');
+      const r=snap.data();if(r.status!=='waiting')throw Error('CLOSED');
+      if((r.memberUids||[]).includes(currentUser.uid))return;
+      if((r.players||[]).length>=r.size)throw Error('FULL');
+      tx.update(ref,{players:firebase.firestore.FieldValue.arrayUnion(roomPlayer()),
+        memberUids:firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
+        updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+    });
+    input.value='';await refreshMyRooms();openRoom(code);toast('Você entrou na sala.');
+  } catch(e) {
+    console.error(e);toast(({NOT_FOUND:'Sala não encontrada.',CLOSED:'Esta sala já foi encerrada.',FULL:'Sala lotada.'})[e.message]||'Não foi possível entrar na sala.');
+  }
+}
+async function openRoom(code) {
+  try {
+    const ref=roomsCol().doc(code),snap=await ref.get();if(!snap.exists)return toast('Sala não encontrada.');
+    const r=snap.data();if(!(r.memberUids||[]).includes(currentUser.uid))return toast('Você não participa desta sala.');
+    stopRoomListener();activeRoomCode=code;
+    roomUnsub=ref.onSnapshot(s=>{if(!s.exists){stopRoomListener();closeModal();return;}renderSharedRoom(s.data());},
+      e=>{console.error(e);toast('Falha ao atualizar a sala.')});
+    renderSharedRoom(r);
+  } catch(e){console.error(e);toast('Falha ao abrir sala.')}
+}
+function renderSharedRoom(r) {
+  const isCreator=r.creatorUid===currentUser.uid,players=Array.isArray(r.players)?r.players:[],full=players.length===r.size;
+  const roster=players.map(p=>`<div class="player">${avatar({name:p.name||'Jogador',pic:p.pic||''})}<div class="meta"><b>${esc(p.name||'Jogador')}</b><small>${p.uid===r.creatorUid?'CRIADOR':'JOGADOR'}</small></div></div>`).join('');
+  let body=`<div class="eyebrow">LOBBY COMPARTILHADO / ${esc(r.code)}</div><h2>Sala ${esc(r.code)} <span class="tag">X${r.size}</span></h2>
+    <p class="sub">${r.status==='closed'?'SALA ENCERRADA':full?'LOBBY COMPLETO':'AGUARDANDO JOGADORES'} · ${players.length}/${r.size} jogadores</p>
+    <div class="resultbox"><b>Código para convidar: <span class="gold">${esc(r.code)}</span></b><div class="btnrow">
+    <button class="btn secondary" onclick="navigator.clipboard?.writeText('${esc(r.code)}').then(()=>toast('Código copiado.')).catch(()=>toast('Não foi possível copiar.'))">COPIAR CÓDIGO</button></div></div><div class="playerlist">${roster}</div>`;
+  if(full&&r.status==='waiting'&&!r.current&&isCreator)body+=`<div class="btnrow"><button class="btn" onclick="configure('${esc(r.code)}')">CONFIGURAR AP</button></div>`;
+  if(r.current)body+=`<div class="resultbox"><div class="eyebrow">AP CONFIGURADO</div><div class="resultrow"><span>Valor AP</span><b>${moneyC(r.current.apCents)}</b></div>
+    <div class="resultrow"><span>Juros</span><b>${moneyC(r.current.feeCents)}</b></div><div class="resultrow"><span>HOST</span><b>${esc(r.current.host||'—')}</b></div>
+    ${isCreator?`<div class="btnrow"><button class="btn" onclick="recordResult('${esc(r.code)}','WIN')">WIN</button><button class="btn danger" onclick="recordResult('${esc(r.code)}','NO WIN')">NO WIN</button></div>`:'<p class="sub">Aguardando o criador registrar o resultado.</p>'}</div>`;
+  const hist=(r.history||[]).map((h,i)=>`<div class="resultrow"><span>#${i+1} · ${esc(h.result||'RESULTADO')}</span><b class="${h.result==='WIN'?'green':'red'}">${signedC(Number(h.totalCents)||0)}</b></div>`).join('')||'<div class="sub">Nenhuma partida registrada.</div>';
+  body+=`<div class="sectionhead"><h3>Histórico compartilhado</h3></div>${hist}`;
+  if(r.status==='closed')body+='<div class="resultbox"><b class="gold">Sala encerrada — histórico preservado</b></div>';
+  else if(isCreator)body+=`<div class="btnrow">${(!r.current&&r.history?.length)?`<button class="btn" onclick="configure('${esc(r.code)}')">INICIAR NOVO AP</button>`:''}<button class="btn danger" onclick="closeRoom('${esc(r.code)}')">ENCERRAR SALA</button></div>`;
+  openModal(body);
+}
+async function closeRoom(code) {
+  if(!confirm('Encerrar esta sala? O histórico das partidas será preservado.'))return;
+  const ref=roomsCol().doc(code);
+  try {
+    await firestore.runTransaction(async tx=>{
+      const snap=await tx.get(ref);if(!snap.exists)throw Error('Sala inexistente.');
+      const r=snap.data();if(r.creatorUid!==currentUser.uid)throw Error('Somente o criador pode encerrar.');
+      if(r.status==='closed')return;
+      tx.update(ref,{status:'closed',current:null,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+    });
+    await refreshMyRooms();toast('Sala encerrada e removida das salas ativas. Histórico preservado.');
+  } catch(e){console.error(e);toast(e.message||'Não foi possível encerrar a sala.')}
+}
+async function saveProfile() {
+  const p=player(db.me);if(!p)return;
+  const oldName=db.me,newName=cleanNick(document.getElementById('profileName').value)||db.me;
+  if(newName.length>24)return toast('O nick pode ter no máximo 24 caracteres.');
+  try {
+    p.name=newName;db.me=newName;if(pendingProfilePic)p.pic=pendingProfilePic;
+    p.bio=document.getElementById('profileBio').value.trim();
+    await persistCloudState();
+    await firestore.collection('users').doc(currentUser.uid).set({nick:newName},{merge:true});
+    await profileDoc().set({uid:currentUser.uid,nick:newName,pic:p.pic||'',bio:p.bio||'',updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
+    pendingProfilePic=null;render();toast('Perfil atualizado.');
+  } catch(e){console.error(e);db.me=oldName;p.name=oldName;toast('Não foi possível salvar o perfil. Confira as regras e o tamanho da foto.')}
+}
+function render() {
+  const me=player(db.me)||db.players[0];if(!me)return;
+  const bal=me.balanceCents??Math.round((me.balance||0)*100),profit=me.profitCents??Math.round((me.profit||0)*100),loss=me.lossCents??Math.round((me.loss||0)*100);
+  const rate=me.matches?Math.round(me.wins/me.matches*100):0;
+  document.getElementById('homeBalance').textContent=signedC(bal);document.getElementById('homeRate').textContent=rate+'%';
+  document.getElementById('homeMatches').textContent=me.matches+' partidas disputadas';
+  document.getElementById('statMatches').textContent=me.matches;document.getElementById('statWins').textContent=me.wins;
+  document.getElementById('statProfit').textContent=moneyC(profit);document.getElementById('statLoss').textContent=moneyC(loss);
+  document.getElementById('profileName').value=me.name;
+  document.getElementById('profilePicPreview').innerHTML=me.pic?'<img src="'+esc(me.pic)+'">':initials(me.name);
+  document.getElementById('profileBio').value=me.bio||'';
+  document.getElementById('pMatches').textContent=me.matches;document.getElementById('pWins').textContent=me.wins;
+  document.getElementById('pRate').textContent=rate+'%';document.getElementById('pBalance').textContent=signedC(bal);
+  renderRooms();renderPublicPlayers();renderGlobalRanking();
+}
+function closeModal(){document.getElementById('modal').classList.remove('show');stopRoomListener();}
+window.addEventListener('beforeunload',()=>{
+  stopRoomListener();if(rankUnsub)rankUnsub();if(publicProfilesUnsub)publicProfilesUnsub();if(myRoomsUnsub)myRoomsUnsub();
+});
+const joinCodeInput=document.getElementById('joinCode');
+if(joinCodeInput)joinCodeInput.addEventListener('input',()=>{joinCodeInput.value=joinCodeInput.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6)});
+
 </script></body></html>

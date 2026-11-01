@@ -630,13 +630,51 @@ async function openRoom(code) {
     renderSharedRoom(r);
   } catch(e){console.error(e);toast('Falha ao abrir sala.')}
 }
+function roomPersonalStats(r, uid) {
+  const stats={balanceCents:0,profitCents:0,lossCents:0,matches:0,wins:0,losses:0,rounds:[]};
+  (Array.isArray(r.history)?r.history:[]).forEach((match,index)=>{
+    const participants=Array.isArray(match.players)?match.players:[];
+    const playerIndex=participants.findIndex(p=>p&&p.uid===uid);
+    if(playerIndex<0)return;
+    const amount=Number(match.sharesCents?.[playerIndex]??0);
+    if(!Number.isSafeInteger(amount))return;
+    stats.balanceCents+=amount;
+    stats.profitCents+=Math.max(0,amount);
+    stats.lossCents+=Math.max(0,-amount);
+    stats.matches++;
+    if(match.result==='WIN')stats.wins++;else stats.losses++;
+    stats.rounds.push({number:index+1,result:match.result||'RESULTADO',amount});
+  });
+  return stats;
+}
+async function showMyRoomBalance(code) {
+  if(!currentUser)return toast('Entre na sua conta para consultar seu saldo.');
+  try {
+    const snap=await roomsCol().doc(code).get();
+    if(!snap.exists)return toast('Sala não encontrada.');
+    const r=snap.data();
+    if(!(r.memberUids||[]).includes(currentUser.uid))return toast('Você não participa desta sala.');
+    const stats=roomPersonalStats(r,currentUser.uid);
+    const rows=stats.rounds.slice().reverse().map(x=>`<div class="resultrow"><span>Partida #${x.number} · ${esc(x.result)}</span><b class="${x.amount>=0?'green':'red'}">${signedC(x.amount)}</b></div>`).join('')||'<div class="empty">Nenhuma partida concluída nesta sala.</div>';
+    openModal(`<div class="eyebrow">EXTRATO INDIVIDUAL / SALA ${esc(code)}</div><h2>Meu saldo individual</h2><p class="sub">Somente você consegue consultar este resumo da sua conta nesta sala.</p>
+      <div class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr));margin:14px 0">
+        <div class="card"><div class="statlabel">Saldo líquido na sala</div><div class="statvalue ${stats.balanceCents>=0?'green':'red'}">${signedC(stats.balanceCents)}</div></div>
+        <div class="card"><div class="statlabel">Lucros acumulados</div><div class="statvalue green">${moneyC(stats.profitCents)}</div></div>
+        <div class="card"><div class="statlabel">Perdas acumuladas</div><div class="statvalue red">${moneyC(stats.lossCents)}</div></div>
+        <div class="card"><div class="statlabel">Partidas</div><div class="statvalue">${stats.matches}</div><div class="sub">${stats.wins} WIN · ${stats.losses} NO WIN</div></div>
+      </div>
+      <div class="sectionhead"><h3>Meu histórico nesta sala</h3></div><div class="resultbox">${rows}</div>
+      <div class="btnrow"><button class="btn secondary" onclick="openRoom('${esc(code)}')">VOLTAR À SALA</button></div>`);
+  } catch(e){console.error(e);toast('Não foi possível consultar seu saldo individual.');}
+}
 function renderSharedRoom(r) {
   const isCreator=r.creatorUid===currentUser.uid,players=Array.isArray(r.players)?r.players:[],full=players.length===r.size;
   const roster=players.map(p=>`<div class="player">${avatar({name:p.name||'Jogador',pic:p.pic||''})}<div class="meta"><b>${esc(p.name||'Jogador')}</b><small>${p.uid===r.creatorUid?'CRIADOR':'JOGADOR'}</small></div></div>`).join('');
   let body=`<div class="eyebrow">LOBBY COMPARTILHADO / ${esc(r.code)}</div><h2>Sala ${esc(r.code)} <span class="tag">X${r.size}</span></h2>
     <p class="sub">${r.status==='closed'?'SALA ENCERRADA':full?'LOBBY COMPLETO':'AGUARDANDO JOGADORES'} · ${players.length}/${r.size} jogadores</p>
     <div class="resultbox"><b>Código para convidar: <span class="gold">${esc(r.code)}</span></b><div class="btnrow">
-    <button class="btn secondary" onclick="navigator.clipboard?.writeText('${esc(r.code)}').then(()=>toast('Código copiado.')).catch(()=>toast('Não foi possível copiar.'))">COPIAR CÓDIGO</button></div></div><div class="playerlist">${roster}</div>`;
+    <button class="btn secondary" onclick="navigator.clipboard?.writeText('${esc(r.code)}').then(()=>toast('Código copiado.')).catch(()=>toast('Não foi possível copiar.'))">COPIAR CÓDIGO</button>
+    <button class="btn" onclick="showMyRoomBalance('${esc(r.code)}')">VER MEU SALDO INDIVIDUAL</button></div></div><div class="playerlist">${roster}</div>`;
   if(full&&r.status==='waiting'&&!r.current&&isCreator)body+=`<div class="btnrow"><button class="btn" onclick="configure('${esc(r.code)}')">CONFIGURAR AP</button></div>`;
   if(r.current)body+=`<div class="resultbox"><div class="eyebrow">AP CONFIGURADO</div><div class="resultrow"><span>Valor AP</span><b>${moneyC(r.current.apCents)}</b></div>
     <div class="resultrow"><span>Juros</span><b>${moneyC(r.current.feeCents)}</b></div><div class="resultrow"><span>HOST</span><b>${esc(r.current.host||'—')}</b></div>

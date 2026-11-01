@@ -247,7 +247,22 @@ function cleanNick(v){return String(v||'').trim().slice(0,24)}
 function profileDoc(){return profilesCol().doc(currentUser.uid)}
 function roomPlayer(){return {uid:currentUser.uid,name:cleanNick(db.me)||'Jogador',pic:player(db.me)?.pic||'',bio:player(db.me)?.bio||''}}
 function localStatsFromMatches(docs){
- const stats={}; docs.forEach(doc=>{const m=doc.data();(m.players||[]).forEach((pl,i)=>{if(!pl.uid)return;let x=stats[pl.uid]||(stats[pl.uid]={uid:pl.uid,name:pl.name||'Jogador',matches:0,wins:0,losses:0,balanceCents:0,profitCents:0,lossCents:0});const v=Number(m.sharesCents?.[i]||0);x.matches++;if(m.result==='WIN')x.wins++;else x.losses++;x.balanceCents+=v;x.profitCents+=Math.max(0,v);x.lossCents+=Math.max(0,-v);});});
+ const stats={};
+ docs.forEach(doc=>{
+  const m=doc.data();
+  (m.players||[]).forEach((pl,i)=>{
+   if(!pl.uid)return;
+   let x=stats[pl.uid]||(stats[pl.uid]={uid:pl.uid,name:pl.name||'Jogador',matches:0,wins:0,losses:0,balanceCents:0,rankBalanceCents:0,profitCents:0,lossCents:0});
+   const actual=Number(m.sharesCents?.[i]||0);
+   // O bônus especial do HOST na primeira WIN continua no saldo real,
+   // mas não entra no ranking para não criar vantagem por função.
+   const hostBonus=(m.result==='WIN'&&m.host&&pl.name===m.host&&Number.isSafeInteger(Number(m.apCents)))?Number(m.apCents):0;
+   const ranked=actual-hostBonus;
+   x.matches++;if(m.result==='WIN')x.wins++;else x.losses++;
+   x.balanceCents+=actual;x.rankBalanceCents+=ranked;
+   x.profitCents+=Math.max(0,actual);x.lossCents+=Math.max(0,-actual);
+  });
+ });
  return Object.values(stats);
 }
 function showRoomListRemoved(){const el=document.getElementById('roomList');if(el)el.remove()}
@@ -552,7 +567,7 @@ function renderPublicPlayers() {
   const byUid=new Map(stats.map(x=>[x.uid,x]));
   const merged=profiles.map(pr=>{const s=byUid.get(pr.uid)||{};return {
     name:pr.nick||s.name||'Jogador',pic:pr.pic||'',bio:pr.bio||'Competidor DIVISION AP',
-    matches:s.matches||0,wins:s.wins||0,balanceCents:s.balanceCents||0
+    matches:s.matches||0,wins:s.wins||0,balanceCents:s.rankBalanceCents??s.balanceCents??0
   }});
   target.innerHTML=merged.map(p=>`<div class="card"><div class="player">${avatar(p)}<div class="meta"><b>${esc(p.name)}</b><small>${esc(p.bio)}</small></div></div>
     <div class="resultrow"><span>Partidas</span><b>${p.matches}</b></div>
@@ -579,11 +594,11 @@ function listenRanking() {
 function renderGlobalRanking() {
   const type=document.querySelector('[data-rank].active')?.dataset.rank||'positive';
   const arr=[...(window.globalDivisionStats||[])];
-  arr.sort((a,b)=>type==='positive'?b.balanceCents-a.balanceCents:type==='negative'?a.balanceCents-b.balanceCents:type==='wins'?b.wins-a.wins:b.losses-a.losses);
+  arr.sort((a,b)=>type==='positive'?(b.rankBalanceCents??b.balanceCents)-(a.rankBalanceCents??a.balanceCents):type==='negative'?(a.rankBalanceCents??a.balanceCents)-(b.rankBalanceCents??b.balanceCents):type==='wins'?b.wins-a.wins:b.losses-a.losses);
   const rows=document.getElementById('rankRows');if(!rows)return;
   rows.innerHTML=arr.map((p,i)=>`<tr><td><span class="ranknum">${String(i+1).padStart(2,'0')}</span></td>
     <td><div class="rankname">${avatar({name:p.name,pic:''},'rankavatar')}<b>${esc(p.name)}</b></div></td><td>${p.matches}</td>
-    <td class="${type==='negative'||type==='losses'?'red':'gold'}">${type==='positive'||type==='negative'?signedC(p.balanceCents):type==='wins'?p.wins:p.losses}</td></tr>`).join('')||
+    <td class="${type==='negative'||type==='losses'?'red':'gold'}">${type==='positive'||type==='negative'?signedC(p.rankBalanceCents??p.balanceCents):type==='wins'?p.wins:p.losses}</td></tr>`).join('')||
     '<tr><td colspan="4">Ainda não há partidas globais registradas.</td></tr>';
 }
 async function enterAuthenticatedApp(user) {

@@ -1,17 +1,8 @@
-Aqui está o HTML revisado com as correções visuais solicitadas. As principais alterações incluem a restauração da logo em todas as telas, o reposicionamento do mascote no banner para maior visibilidade e ajustes finos de responsividade.
-
-```html
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#dff5ff">
-<title>Frost Rise — Ice Control Center</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#dff5ff"><title>Frost Rise — Ice Control Center</title>
+<link rel="icon" type="image/png" href="https://i.imgur.com/xw66v9B.png">
 <style>
+500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#080b10;--surface:#101722;--surface2:#151f2d;--surface3:#1b2939;--line:#263548;--text:#f2f5fa;--muted:#91a0b3;--accent:#e5a64b;--accent2:#f4c778;--green:#4bd4a0;--red:#ff6878;--radius:18px;--shadow:0 18px 50px #0005}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#1a2b40 0,transparent 36%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}
 .app{min-height:100vh;display:block}.sitehead{position:sticky;top:0;z-index:15;background:#090e16ed;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.headinner{max-width:1440px;margin:auto;padding:13px clamp(16px,3vw,42px);display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;min-width:205px}.brand img{width:43px;height:43px;object-fit:contain;border-radius:13px;background:#121c2a;padding:5px}.brand strong{font:700 19px 'Space Grotesk';letter-spacing:.5px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2.3px;margin-top:2px}.nav{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.nav button{border:1px solid transparent;background:transparent;color:#a9b5c4;padding:11px 14px;border-radius:11px;font-size:12px;font-weight:700;transition:.2s}.nav button:hover{background:#182334;color:white}.nav button.active{background:var(--surface3);border-color:#34485f;color:var(--accent2);box-shadow:inset 0 -2px var(--accent)}.headstatus{font-size:10px;color:var(--green);font-weight:800;letter-spacing:1px;white-space:nowrap}.headstatus:before{content:"";display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;margin-right:8px;box-shadow:0 0 12px #4bd4a0}
@@ -618,216 +609,552 @@ h1,h2,h3,.eyebrow,.sub{text-wrap:pretty}.topbar{align-items:center}.topbar>div:f
 @media(max-width:560px){.workspace main{padding:20px 12px 42px}.welcome h2{font-size:clamp(30px,8vw,38px);letter-spacing:-1.4px}.welcome p{font-size:12px}.welcome-actions{width:100%;align-items:stretch}.welcome-actions .btn{flex:1;min-width:0;padding:11px 10px}.rankbanner .rank-art{width:48%;opacity:.23}.rankbanner h2{font-size:clamp(28px,7vw,38px)}.sectionhead{gap:10px}.sectionhead .btn{max-width:100%;white-space:normal}}
 @media(prefers-reduced-motion:reduce){#snowfall{display:none}.welcome:before{animation:none!important}.btn,.card,.room,.nav button{transition:none!important}}
 
-</style>
-</head>
-<body>
-<div id="snowfall" aria-hidden="true"></div>
-<div id="divisionLoader" aria-label="Carregando FROST RISE">
-  <div class="loader-core">
-    <img class="loader-emblem" src="https://i.imgur.com/xw66v9B.png" alt="Frost Rise">
-    <div class="loader-ring"></div>
-    <div class="loader-name">FROST RISE</div>
-    <div class="loader-sub">PREPARANDO O GELO</div>
-    <div class="loader-line"></div>
-  </div>
-</div>
 
-<div class="authgate" id="authGate">
-  <div class="authcard">
-    <div class="authbrand">
-      <img src="https://i.imgur.com/xw66v9B.png" alt="Frost Rise">
-      <div class="eyebrow">FROST CONTROL CENTER</div>
-      <h1>FROST RISE</h1>
-      <p class="sub">Entre para acessar suas salas, partidas e rankings.</p>
-    </div>
-    <div class="auth-tabs">
-      <button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button>
-      <button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button>
-      <button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button>
-    </div>
-    <form id="loginForm" class="auth-actions">
-      <div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div>
-      <div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
-      <button class="btn" type="submit">ENTRAR NA DIVISION</button>
-    </form>
-    <form id="signupForm" class="auth-actions auth-hidden">
-      <div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div>
-      <div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div>
-      <div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div>
-      <div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div>
-      <button class="btn" type="submit">CRIAR CONTA</button>
-    </form>
-    <form id="resetForm" class="auth-actions auth-hidden">
-      <div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div>
-      <button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button>
-    </form>
-    <form id="newPasswordForm" class="auth-actions auth-hidden">
-      <div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div>
-      <button class="btn" type="submit">SALVAR NOVA SENHA</button>
-    </form>
-    <div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div>
-    <p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p>
-  </div>
-</div>
+/* === FROST RISE | revisão visual sem alterar a estrutura ou os sistemas === */
 
+/* Logo oficial: usar o arquivo de imagem nas três áreas da interface. */
+.loader-emblem{
+  display:block!important;
+  width:92px!important;
+  height:92px!important;
+  object-fit:contain!important;
+  margin:0 auto 10px!important;
+  filter:drop-shadow(0 0 22px #80dcff)!important;
+}
+.loader-core:before,
+.authbrand:before,
+.sidebrand:before{content:none!important;display:none!important}
+.authbrand img{
+  display:inline-block!important;
+  width:104px!important;
+  height:104px!important;
+  object-fit:contain!important;
+  margin:0 auto 12px!important;
+  filter:drop-shadow(0 0 22px #80dcff)!important;
+}
+.sidebrand{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  text-align:left!important;
+  gap:11px!important;
+}
+.sidebrand img{
+  display:block!important;
+  width:46px!important;
+  height:46px!important;
+  flex:none!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 14px #80dcff)!important;
+}
+.sidebrand strong,.sidebrand small{display:block!important}
+
+/* Banner principal: mascote maior, visível e separado da área de leitura. */
+.welcome{
+  text-align:left!important;
+  align-items:stretch!important;
+  isolation:isolate;
+  min-height:300px!important;
+}
+.welcome:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:50%!important;
+  right:2%!important;
+  bottom:auto!important;
+  width:43%!important;
+  height:94%!important;
+  transform:translateY(-50%)!important;
+  background:url('https://i.imgur.com/vZkmZLX.png') center right/contain no-repeat!important;
+  opacity:.48!important;
+  filter:drop-shadow(0 0 22px #8eeaff65)!important;
+  pointer-events:none!important;
+}
+.welcome-copy{
+  z-index:2!important;
+  width:100%!important;
+  max-width:62%!important;
+  margin:0!important;
+  text-align:left!important;
+}
+.welcome .eyebrow,.welcome h2,.welcome p{margin-left:0!important;margin-right:0!important}
+.welcome p{max-width:440px!important}
+.welcome-actions{justify-content:flex-start!important}
+
+/* Banner do ranking: imagem com presença, sem competir com o título. */
+.rankbanner{isolation:isolate;min-height:158px;display:flex;align-items:center}
+.rankbanner .rank-art{
+  z-index:0;
+  width:46%!important;
+  height:145%!important;
+  top:-20%!important;
+  right:0!important;
+  object-fit:contain!important;
+  object-position:center right!important;
+  opacity:.34!important;
+  filter:drop-shadow(0 0 18px #8eeaff45)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 100%)!important;
+}
+.rankbanner .ranktext{z-index:1;max-width:68%}
+
+/* Ajustes de conteúdo para evitar cortes e rolagem horizontal indevida. */
+.workspace,.workspace main,.page,.grid,.card,.topbar,.sectionhead{min-width:0}
+.tablewrap{width:100%;max-width:100%;overflow-x:auto!important;overscroll-behavior-x:contain}
+.tablewrap table{min-width:520px}
+.tabs{max-width:100%;flex-wrap:wrap}
+.tabs button{white-space:normal;line-height:1.25}
+.btnrow,.welcome-actions{max-width:100%}
+.btn{white-space:normal;overflow-wrap:anywhere}
+input,select,textarea{max-width:100%}
+img{max-width:100%}
+
+/* Mantém a barra lateral e sua largura já definida; adapta somente o conteúdo. */
+@media(max-width:820px){
+  .sidebrand{flex-direction:column!important;justify-content:center!important;text-align:center!important;gap:6px!important}
+  .sidebrand img{width:34px!important;height:34px!important}
+  .sidebrand strong,.sidebrand small{display:none!important}
+  .welcome{min-height:255px!important;padding:18px!important}
+  .welcome-copy{max-width:66%!important}
+  .welcome:after{width:48%!important;height:92%!important;right:0!important;opacity:.42!important}
+  .rankbanner{min-height:132px}
+  .rankbanner .rank-art{width:48%!important;height:130%!important;opacity:.30!important}
+  .rankbanner .ranktext{max-width:72%}
+}
+@media(max-width:560px){
+  .authcard{padding:20px!important}
+  .authbrand img{width:88px!important;height:88px!important}
+  .loader-emblem{width:82px!important;height:82px!important}
+  .welcome{min-height:230px!important;padding:16px!important}
+  .welcome-copy{max-width:72%!important}
+  .welcome h2{font-size:clamp(22px,6.4vw,30px)!important}
+  .welcome p{font-size:10px!important;line-height:1.45!important}
+  .welcome:after{width:52%!important;height:86%!important;right:-2%!important;opacity:.38!important}
+  .welcome-actions{width:auto!important;flex-direction:column!important;align-items:stretch!important}
+  .welcome-actions .btn{width:100%;min-width:0}
+  .rankbanner{min-height:120px;padding:13px!important}
+  .rankbanner .rank-art{width:52%!important;height:120%!important;right:-2%!important;opacity:.28!important}
+  .rankbanner .ranktext{max-width:76%}
+  .rankbanner h2{font-size:clamp(20px,5.8vw,27px)!important}
+  .rankbanner p{font-size:7px!important;letter-spacing:.7px!important}
+  .tabs button{flex:1 1 calc(50% - 5px);min-width:0}
+  .sectionhead{align-items:flex-start!important}
+  .sectionhead .btn{white-space:normal}
+}
+@media(max-width:390px){
+  .welcome-copy{max-width:75%!important}
+  .welcome:after{width:54%!important;opacity:.32!important}
+  .rankbanner .ranktext{max-width:78%}
+}
+
+
+
+/* === FROST RISE | layout centralizado, legibilidade e identidade === */
+#divisionLoader,.loader-core,.loader-ring,.loader-line{display:none!important}
+:root{--rail:232px;--content-max:1320px}
+html,body{min-height:100%;overflow-x:hidden}
+body{line-height:1.55}
+
+/* Navegação e marca */
+.sidebar{
+  width:var(--rail)!important;
+  align-items:center!important;
+  padding:26px 18px 20px!important;
+  text-align:center!important;
+}
+.sidebrand{
+  width:100%!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  text-align:center!important;
+  gap:10px!important;
+  padding:7px 8px 25px!important;
+}
+.sidebrand:before{display:none!important;content:none!important}
+.sidebrand img{
+  display:block!important;
+  width:76px!important;height:76px!important;
+  object-fit:contain!important;
+  margin:0 auto!important;
+  filter:drop-shadow(0 0 20px #80dcff70)!important;
+}
+.sidebrand strong{display:block!important;font-size:17px!important;letter-spacing:1.8px!important}
+.sidebrand small{display:block!important;font-size:9px!important;letter-spacing:2px!important}
+.side-caption{width:100%;text-align:center!important;margin:24px 0 14px!important}
+.sidebar .nav{
+  width:100%!important;display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;justify-content:center!important;gap:10px!important;
+}
+.sidebar .nav button{
+  width:100%!important;min-height:50px!important;
+  justify-content:center!important;text-align:center!important;
+  gap:12px!important;padding:11px 12px!important;
+  font-size:13px!important;border-radius:14px!important;
+}
+.sidebar .nav button .navicon{width:31px!important;height:31px!important;font-size:18px!important}
+.sidebar-bottom{width:100%;text-align:center!important;margin-top:auto!important}
+.workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important;min-width:0!important}
+.workspace main{
+  width:100%!important;max-width:var(--content-max)!important;
+  margin-inline:auto!important;
+  padding:clamp(28px,4vw,54px) clamp(20px,4vw,54px) 76px!important;
+}
+
+/* Cabeçalhos e conteúdo */
+.topbar{
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  text-align:center!important;gap:12px!important;
+  margin:0 auto 32px!important;padding:0 0 25px!important;
+}
+.topbar>div:first-child{width:100%;text-align:center!important}
+.topbar .eyebrow{font-size:11px!important;letter-spacing:2px!important}
+.topbar h1{font-size:clamp(27px,3vw,40px)!important;line-height:1.15!important;margin:8px 0 0!important}
+.topbar .pill{font-size:11px!important;padding:9px 15px!important}
+.page{width:100%;max-width:1180px;margin:0 auto!important}
+h1,h2,h3,p,.eyebrow,.sub,.section-note{text-align:center}
+h2{font-size:clamp(21px,2.2vw,28px)!important;line-height:1.2!important}
+h3{font-size:17px!important}
+.eyebrow{font-size:11px!important;letter-spacing:1.7px!important}
+.sub,.section-note{font-size:13px!important;line-height:1.65!important}
+.sectionhead{
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  text-align:center!important;gap:12px!important;
+  margin:34px 0 19px!important;
+}
+.sectionhead>div{text-align:center!important}
+.sectionhead h2{margin:6px 0 0!important}
+.sectionhead .btn{align-self:center}
+.grid{gap:20px!important}
+.card{
+  padding:25px!important;border-radius:19px!important;
+  text-align:center!important;
+}
+.stats{gap:18px!important;margin:24px 0 34px!important}
+.stats .card{min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.statlabel{font-size:11px!important;letter-spacing:1.5px!important;text-align:center!important}
+.statvalue{font-size:clamp(27px,2.7vw,36px)!important;line-height:1.15!important;margin-top:10px!important;text-align:center!important}
+
+/* Banner Frost Rise: logo em destaque, mensagem central e mascote de apoio. */
+.home-layout{grid-template-columns:minmax(0,1.35fr) minmax(270px,.75fr)!important;gap:22px!important;align-items:stretch!important}
+.welcome{
+  min-height:390px!important;padding:34px clamp(20px,4vw,48px)!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  text-align:center!important;isolation:isolate!important;
+  border-radius:24px!important;overflow:hidden!important;
+  background:
+    radial-gradient(ellipse at 50% 0%,#6ccff32b,transparent 58%),
+    linear-gradient(135deg,#123b54f5,#0a2235f5 62%,#10354cf5)!important;
+  border:1px solid #83dcff75!important;
+  box-shadow:inset 0 0 55px #8bdfff12,0 18px 48px #0004,0 0 36px #55b9ee16!important;
+}
+.welcome:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:0!important;
+  background:linear-gradient(115deg,transparent 35%,#e7faff13 50%,transparent 65%)!important;
+  pointer-events:none!important;
+}
+.welcome:after{
+  content:""!important;position:absolute!important;z-index:0!important;
+  top:50%!important;right:0!important;bottom:auto!important;
+  width:48%!important;height:94%!important;
+  transform:translateY(-50%)!important;
+  background:url('https://i.imgur.com/vZkmZLX.png') center right/contain no-repeat!important;
+  opacity:.19!important;filter:drop-shadow(0 0 24px #80dcff80)!important;
+  pointer-events:none!important;
+}
+.welcome-copy{
+  position:relative!important;z-index:2!important;
+  width:100%!important;max-width:760px!important;
+  margin:0 auto!important;text-align:center!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+}
+.welcome-logo{
+  display:block!important;width:clamp(104px,11vw,148px)!important;
+  height:auto!important;max-height:148px!important;object-fit:contain!important;
+  margin:0 auto 15px!important;
+  filter:drop-shadow(0 0 23px #8eeaff8a)!important;
+}
+.welcome .eyebrow,.welcome h2,.welcome p{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+.welcome .eyebrow{font-size:11px!important;letter-spacing:2px!important}
+.welcome h2{font-size:clamp(34px,4vw,52px)!important;line-height:1.08!important;letter-spacing:-1.4px!important;margin:12px auto!important;text-shadow:0 0 24px #55b9ee30!important}
+.welcome p{max-width:600px!important;font-size:14px!important;line-height:1.7!important}
+.welcome-actions{justify-content:center!important;align-items:center!important;gap:12px!important;margin-top:20px!important}
+.welcome-actions .btn{min-height:46px!important;padding:13px 20px!important;font-size:12px!important}
+.performance{min-height:100%;justify-content:center!important;align-items:center!important;gap:22px!important;padding:28px!important}
+.performance-main{width:100%;text-align:center!important;padding-bottom:20px!important}
+.performance-main .statlabel,.performance-main .sub{text-align:center!important}
+.performance .big{font-size:clamp(29px,3vw,40px)!important;text-align:center!important}
+.performance-bottom{width:100%;gap:16px!important;text-align:center!important}
+.performance-bottom>div{text-align:center!important}
+.performance-bottom .big{font-size:27px!important}
+
+/* Cartões, listas, salas e perfis */
+.home-layout,.rooms-layout,.profile-layout{align-items:stretch!important}
+.rooms-layout,.profile-layout{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}
+.roomgrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+.player-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+.room,.player-cards>.card{display:flex;flex-direction:column;align-items:center;text-align:center}
+.roomcode{font-size:27px!important}
+.player{width:100%;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:10px!important;padding:16px!important;text-align:center!important}
+.player .meta{text-align:center!important}
+.player .meta b,.player .meta small{display:block;text-align:center!important}
+.avatar{width:54px!important;height:54px!important;border-radius:16px!important}
+.rankname{justify-content:center!important}
+.resultrow{justify-content:center!important;flex-wrap:wrap!important;text-align:center!important;gap:8px 16px!important}
+.resultrow>*{text-align:center!important}
+.players-intro{flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:12px!important}
+.players-intro>div{text-align:center!important}
+.profile-summary{flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:13px!important}
+.profile-summary>div:last-child{text-align:center!important}
+.profile-stats{gap:16px!important}
+
+/* Formulários centralizados e mais confortáveis */
+.authgate{padding:24px!important}
+.authcard{width:min(520px,100%)!important;padding:clamp(24px,4vw,38px)!important;text-align:center!important;border-radius:24px!important}
+.authbrand{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;margin-bottom:25px!important}
+.authbrand:before{display:none!important;content:none!important}
+.authbrand img{display:block!important;width:clamp(100px,12vw,132px)!important;height:auto!important;max-height:132px!important;object-fit:contain!important;margin:0 auto 15px!important;animation:none!important;filter:drop-shadow(0 0 23px #80dcff85)!important}
+.authbrand h1{font-size:clamp(30px,4vw,38px)!important;margin:6px 0 10px!important;letter-spacing:1px!important}
+.authbrand .eyebrow,.authbrand p{text-align:center!important}
+.auth-tabs{width:100%;justify-content:center!important;gap:7px!important;margin:0 auto 20px!important}
+.auth-tabs button{font-size:11px!important;padding:12px 8px!important}
+.auth-actions{width:100%;max-width:430px;margin:0 auto!important;gap:16px!important}
+.field{width:100%;align-items:stretch!important;gap:8px!important}
+.field label{font-size:11px!important;text-align:center!important}
+input,select,textarea{font-size:14px!important;padding:14px 15px!important;text-align:center!important;border-radius:12px!important}
+.auth-actions>.btn{min-height:48px!important;font-size:12px!important}
+.auth-msg,.authcard>.sub{text-align:center!important}
+.btnrow{justify-content:center!important;gap:11px!important}
+.btn{font-size:12px!important;padding:13px 18px!important;min-height:42px}
+.tabs{justify-content:center!important;gap:9px!important}
+.tabs button{font-size:11px!important;padding:11px 15px!important}
+.tablewrap{border-radius:16px!important}
+table{font-size:13px!important}
+th,td{text-align:center!important;padding:15px 13px!important}
+.rankbanner{
+  min-height:220px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:30px!important;text-align:center!important;isolation:isolate!important;
+}
+.rankbanner .rank-art{
+  width:44%!important;height:130%!important;right:0!important;top:-15%!important;
+  object-fit:contain!important;object-position:center right!important;
+  opacity:.20!important;filter:drop-shadow(0 0 22px #8eeaff60)!important;
+}
+.rankbanner .ranktext{width:100%!important;max-width:780px!important;margin:auto!important;text-align:center!important}
+.rankbanner h2{font-size:clamp(32px,4.2vw,48px)!important;margin:12px auto!important}
+.rankbanner p{font-size:12px!important;letter-spacing:1.7px!important;text-align:center!important}
+.modal{text-align:center!important;padding:28px!important}
+.modal h2,.modal h3,.modal p,.modal .eyebrow{text-align:center!important}
+
+/* Tablet e celular: mantém a barra compacta sem sacrificar o conteúdo. */
+@media(max-width:1100px){
+  .home-layout{grid-template-columns:minmax(0,1fr)!important}
+  .performance{min-height:0!important}
+  .roomgrid,.player-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:820px){
+  :root{--rail:76px!important}
+  .sidebar{width:var(--rail)!important;padding:17px 7px!important}
+  .sidebrand{padding:5px 0 18px!important;gap:5px!important}
+  .sidebrand img{width:46px!important;height:46px!important}
+  .sidebrand strong,.sidebrand small,.side-caption,.sidebar-bottom{display:none!important}
+  .sidebar .nav{gap:12px!important;align-items:center!important}
+  .sidebar .nav button{width:50px!important;height:50px!important;min-height:50px!important;padding:0!important;gap:0!important;border:0!important;background:transparent!important;justify-content:center!important}
+  .sidebar .nav button>span:not(.navicon){display:none!important}
+  .sidebar .nav button .navicon{width:36px!important;height:36px!important;font-size:20px!important}
+  .sidebar .nav button i{display:none!important}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:28px 20px 54px!important}
+  .page{max-width:100%!important}
+  .topbar{margin-bottom:24px!important;padding-bottom:20px!important}
+  .welcome{min-height:350px!important;padding:26px 20px!important}
+  .welcome-copy{max-width:100%!important}
+  .welcome:after{width:55%!important;opacity:.14!important}
+  .welcome-logo{width:112px!important}
+  .welcome h2{font-size:clamp(30px,6vw,42px)!important}
+  .welcome p{font-size:13px!important}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:13px!important}
+  .rooms-layout,.profile-layout{grid-template-columns:minmax(0,1fr)!important}
+  .rankbanner{min-height:190px!important}
+  .rankbanner .ranktext{max-width:100%!important}
+}
+@media(max-width:560px){
+  :root{--rail:64px!important}
+  .sidebar{width:var(--rail)!important;padding:14px 5px!important}
+  .sidebrand img{width:40px!important;height:40px!important}
+  .sidebar .nav{gap:9px!important}
+  .sidebar .nav button{width:45px!important;height:45px!important;min-height:45px!important}
+  .sidebar .nav button .navicon{width:33px!important;height:33px!important;font-size:18px!important}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:22px 13px 42px!important}
+  .topbar h1{font-size:clamp(22px,6vw,29px)!important}
+  .topbar .eyebrow{font-size:9px!important;letter-spacing:1.3px!important}
+  .topbar .pill{font-size:9px!important}
+  .card{padding:19px!important;border-radius:16px!important}
+  .grid{gap:14px!important}
+  .stats{gap:10px!important;margin:16px 0 24px!important}
+  .stats .card{min-height:112px;padding:15px 10px!important}
+  .statlabel{font-size:9px!important;letter-spacing:1px!important}
+  .statvalue{font-size:clamp(21px,6vw,27px)!important}
+  .welcome{min-height:330px!important;padding:24px 15px!important;border-radius:19px!important}
+  .welcome-logo{width:92px!important;margin-bottom:12px!important}
+  .welcome .eyebrow{font-size:9px!important;letter-spacing:1.2px!important}
+  .welcome h2{font-size:clamp(27px,7vw,34px)!important}
+  .welcome p{font-size:12px!important;line-height:1.6!important}
+  .welcome-actions{width:100%!important;flex-direction:column!important;align-items:stretch!important}
+  .welcome-actions .btn{width:100%!important}
+  .performance{padding:20px!important;gap:17px!important}
+  .performance-bottom{gap:8px!important}
+  .performance-bottom .big{font-size:22px!important}
+  .roomgrid,.player-cards{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .sectionhead{margin:26px 0 14px!important}
+  .sectionhead h2{font-size:20px!important}
+  .players-intro h2{font-size:21px!important}
+  .rankbanner{min-height:170px!important;padding:22px 14px!important}
+  .rankbanner .rank-art{width:60%!important;opacity:.14!important}
+  .rankbanner h2{font-size:clamp(25px,7vw,33px)!important}
+  .rankbanner p{font-size:9px!important;letter-spacing:1px!important}
+  .authgate{padding:14px!important}
+  .authcard{padding:22px 17px!important}
+  .authbrand img{width:94px!important}
+  .authbrand h1{font-size:29px!important}
+  .auth-tabs button{font-size:9px!important;padding:10px 4px!important}
+  .field label{font-size:9px!important}
+  input,select,textarea{font-size:13px!important;padding:12px!important}
+  .btn{font-size:11px!important;padding:12px 14px!important}
+  .tabs button{font-size:9px!important;padding:9px 10px!important}
+  .tablewrap table{min-width:500px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome:before,.snowflake{animation:none!important}
+  .authbrand img{animation:none!important}
+  .btn,.card,.room,.sidebar .nav button{transition:none!important}
+}
+
+</style></head><body><div id="snowfall" aria-hidden="true"></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/xw66v9B.png" alt="Frost Rise"><div class="eyebrow">FROST CONTROL CENTER</div><h1>FROST RISE</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app auth-hidden" id="divisionApp">
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebrand">
-      <img src="https://i.imgur.com/xw66v9B.png" alt="FROST RISE">
-      <div><strong>FROST RISE</strong><small>FROST COMMUNITY</small></div>
-    </div>
-    <div class="side-caption">MENU PRINCIPAL</div>
-    <nav class="nav" aria-label="Navegação principal">
-      <button class="active" data-page="home"><span class="navicon">⌂</span><span>Visão geral</span><i></i></button>
-      <button data-page="rooms"><span class="navicon">▦</span><span>Salas</span><i></i></button>
-      <button data-page="ranking"><span class="navicon">♛</span><span>Division Rank</span><i></i></button>
-      <button data-page="players"><span class="navicon">◉</span><span>Jogadores</span><i></i></button>
-      <button data-page="profile"><span class="navicon">◈</span><span>Meu perfil</span><i></i></button>
-    </nav>
-    <div class="sidebar-bottom">
-      <div class="online-mark"><b></b> SISTEMA ONLINE</div>
-      <div class="side-version">FROST RISE <span>•</span> FROST CONTROL CENTER</div>
-    </div>
-  </aside>
-
-  <div class="workspace">
-    <main>
-      <div class="topbar">
-        <div><div class="eyebrow">FROST RISE / FROST PLAYER AREA</div><h1 id="pageTitle">Painel inicial</h1></div>
-        <div class="pill">ÁREA DO COMPETIDOR</div>
-      </div>
-
-      <section class="page active" id="home">
-        <div class="home-layout">
-          <div class="welcome">
-            <div class="welcome-copy">
-              <div class="eyebrow">SUA PRÓXIMA PARTIDA COMEÇA AQUI</div>
-              <h2>Entre na arena.<br><span class="gold">Faça seu nome.</span></h2>
-              <p>Crie uma sala, reúna os jogadores e acompanhe sua evolução dentro da Division.</p>
-              <div class="welcome-actions">
-                <button class="btn" onclick="openCreate()">＋ Criar sala</button>
-                <button class="btn secondary" onclick="showPage('rooms')">Entrar em uma sala</button>
-              </div>
-            </div>
-          </div>
-          <div class="card performance">
-            <div class="performance-main">
-              <div class="statlabel">SEU RESULTADO ACUMULADO</div>
-              <div class="big" id="homeBalance">R$ 0,00</div>
-              <div class="sub">Saldo virtual na plataforma</div>
-            </div>
-            <div class="performance-bottom">
-              <div><div class="statlabel">APROVEITAMENTO</div><div class="big" id="homeRate">0%</div><div class="sub" id="homeMatches">0 partidas</div></div>
-              <div><div class="statlabel">PARTIDAS</div><div class="big" id="statMatches">0</div><div class="sub">Registradas</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="grid stats">
-          <div class="card"><div class="statlabel">VITÓRIAS</div><div class="statvalue green" id="statWins">0</div></div>
-          <div class="card"><div class="statlabel">LUCRO TOTAL</div><div class="statvalue gold" id="statProfit">R$ 0,00</div></div>
-          <div class="card"><div class="statlabel">PREJUÍZO TOTAL</div><div class="statvalue red" id="statLoss">R$ 0,00</div></div>
-          <div class="card"><div class="statlabel">SEU WIN RATE</div><div class="statvalue" id="homeRateMirror">0%</div></div>
-        </div>
-        <div class="sectionhead"><div><div class="eyebrow">CONTINUE DE ONDE PAROU</div><h2>Suas salas</h2></div><button class="btn secondary" onclick="showPage('rooms')">Ver todas as salas →</button></div>
-        <div class="grid roomgrid" id="homeRooms"></div>
-      </section>
-
-      <section class="page" id="rooms">
-        <div class="rooms-layout">
-          <div class="card">
-            <div class="eyebrow">MATCHMAKING</div><h2 style="margin-top:8px">Entrar em uma sala</h2>
-            <p class="sub">Já tem um código? Informe os dados para entrar no lobby.</p>
-            <div class="grid" style="margin-top:18px">
-              <div class="field"><label>Código da sala</label><input id="joinCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ex.: A8K2QZ"></div>
-              <div class="field"><label>Seu nick</label><input id="joinNick" maxlength="24" placeholder="Digite seu nick"></div>
-            </div>
-            <button class="btn" style="margin-top:15px;width:100%" onclick="joinRoom()">Entrar na sala</button>
-            <div style="height:1px;background:var(--line);margin:22px 0"></div>
-            <div class="eyebrow">NOVA PARTIDA</div><h3 style="margin-top:8px">Ainda não tem uma sala?</h3>
-            <p class="sub">Configure uma nova sala e convide os outros jogadores pelo código gerado.</p>
-            <button class="btn secondary" style="width:100%" onclick="openCreate()">＋ Criar nova sala</button>
-          </div>
-          <div>
-            <div class="sectionhead" style="margin-top:0"><div><div class="eyebrow">LOBBY / OPERAÇÕES</div><h2>Salas disponíveis</h2></div></div>
-            <div class="grid roomgrid" id="roomList"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="page" id="ranking">
-        <div class="rankbanner">
-          <img class="rank-art" src="https://i.imgur.com/vZkmZLX.png" alt="" onerror="this.style.display='none'">
-          <div class="ranktext">
-            <div class="eyebrow">HALL DA DIVISION</div>
-            <h2>Quem domina <span class="gold">a arena?</span></h2>
-            <p>RESULTADOS DOS COMPETIDORES</p>
-          </div>
-        </div>
-        <div class="sectionhead"><div><div class="eyebrow">CLASSIFICAÇÃO</div><h2>Desempenho dos jogadores</h2></div></div>
-        <div class="tabs">
-          <button class="active" data-rank="positive">Saldo positivo</button>
-          <button data-rank="negative">Saldo negativo</button>
-          <button data-rank="wins">Mais vitórias</button>
-          <button data-rank="losses">Mais derrotas</button>
-        </div>
-        <div class="card tablewrap">
-          <table>
-            <thead><tr><th>Posição</th><th>Jogador</th><th>Partidas</th><th>Resultado</th></tr></thead>
-            <tbody id="rankRows"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="page" id="players">
-        <div class="players-intro">
-          <div><div class="eyebrow">COMUNIDADE</div><h2>Jogadores da Division</h2><p class="sub">Conheça os competidores e acompanhe seus números.</p></div>
-          <div class="pill">PLAYER ROSTER</div>
-        </div>
-        <div class="grid player-cards" id="playerCards"></div>
-      </section>
-
-      <section class="page" id="profile">
-        <div class="profile-layout">
-          <div class="card">
-            <div class="eyebrow">IDENTIDADE DO COMPETIDOR</div><h2 style="margin-top:8px">Seu perfil</h2>
-            <div class="profile-summary">
-              <div id="profilePicPreview" class="avatar">GL</div>
-              <div><h3 style="margin:0">Personalize sua identidade</h3><div class="sub">Seu perfil aparece nas salas e na comunidade.</div></div>
-            </div>
-            <div class="grid">
-              <div class="field"><label>Nome / nick</label><input id="profileName" maxlength="24"></div>
-              <div class="field"><label>Foto pessoal</label><input type="file" id="profilePicFile" accept="image/*"></div>
-              <div class="field"><label>Bio</label><textarea id="profileBio" rows="3" placeholder="Conte um pouco sobre você..."></textarea></div>
-            </div>
-            <div class="btnrow">
-              <button class="btn" onclick="saveProfile()">Salvar perfil</button>
-              <button class="btn danger" type="button" onclick="logoutAccount()">Sair da conta</button>
-            </div>
-          </div>
-          <div class="grid profile-stats">
-            <div class="card"><div class="statlabel">PARTIDAS</div><div class="statvalue" id="pMatches">0</div></div>
-            <div class="card"><div class="statlabel">VITÓRIAS</div><div class="statvalue green" id="pWins">0</div></div>
-            <div class="card"><div class="statlabel">WIN RATE</div><div class="statvalue gold" id="pRate">0%</div></div>
-            <div class="card"><div class="statlabel">SALDO INDIVIDUAL</div><div class="statvalue" id="pBalance">R$ 0,00</div></div>
-          </div>
-        </div>
-      </section>
-    </main>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebrand"><img src="https://i.imgur.com/xw66v9B.png" alt="FROST RISE"><div><strong>FROST RISE</strong><small>FROST COMMUNITY</small></div></div>
+  <div class="side-caption">MENU PRINCIPAL</div>
+  <nav class="nav" aria-label="Navegação principal">
+    <button class="active" data-page="home"><span class="navicon">⌂</span><span>Visão geral</span><i></i></button>
+    <button data-page="rooms"><span class="navicon">▦</span><span>Salas</span><i></i></button>
+    <button data-page="ranking"><span class="navicon">♛</span><span>Division Rank</span><i></i></button>
+    <button data-page="players"><span class="navicon">◉</span><span>Jogadores</span><i></i></button>
+    <button data-page="profile"><span class="navicon">◈</span><span>Meu perfil</span><i></i></button>
+  </nav>
+  <div class="sidebar-bottom"><div class="online-mark"><b></b> SISTEMA ONLINE</div><div class="side-version">FROST RISE <span>•</span> FROST CONTROL CENTER</div></div>
+</aside>
+<div class="workspace">
+  <main>
+  <div class="topbar">
+    <div><div class="eyebrow">FROST RISE / FROST PLAYER AREA</div><h1 id="pageTitle">Painel inicial</h1></div>
+    <div class="pill">ÁREA DO COMPETIDOR</div>
   </div>
+
+  <section class="page active" id="home">
+    <div class="home-layout">
+      <div class="welcome">
+        <div class="welcome-copy">
+          <img class="welcome-logo" src="https://i.imgur.com/xw66v9B.png" alt="Logo Frost Rise">
+          <div class="eyebrow">SUA PRÓXIMA PARTIDA COMEÇA AQUI</div>
+          <h2>Entre na arena.<br><span class="gold">Faça seu nome.</span></h2>
+          <p>Crie uma sala, reúna os jogadores e acompanhe sua evolução dentro da Division.</p>
+          <div class="welcome-actions">
+            <button class="btn" onclick="openCreate()">＋ Criar sala</button>
+            <button class="btn secondary" onclick="showPage('rooms')">Entrar em uma sala</button>
+          </div>
+        </div>
+      </div>
+      <div class="card performance">
+        <div class="performance-main">
+          <div class="statlabel">SEU RESULTADO ACUMULADO</div>
+          <div class="big" id="homeBalance">R$ 0,00</div>
+          <div class="sub">Saldo virtual na plataforma</div>
+        </div>
+        <div class="performance-bottom">
+          <div><div class="statlabel">APROVEITAMENTO</div><div class="big" id="homeRate">0%</div><div class="sub" id="homeMatches">0 partidas</div></div>
+          <div><div class="statlabel">PARTIDAS</div><div class="big" id="statMatches">0</div><div class="sub">Registradas</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid stats">
+      <div class="card"><div class="statlabel">VITÓRIAS</div><div class="statvalue green" id="statWins">0</div></div>
+      <div class="card"><div class="statlabel">LUCRO TOTAL</div><div class="statvalue gold" id="statProfit">R$ 0,00</div></div>
+      <div class="card"><div class="statlabel">PREJUÍZO TOTAL</div><div class="statvalue red" id="statLoss">R$ 0,00</div></div>
+      <div class="card"><div class="statlabel">SEU WIN RATE</div><div class="statvalue" id="homeRateMirror">0%</div></div>
+    </div>
+    <div class="sectionhead"><div><div class="eyebrow">CONTINUE DE ONDE PAROU</div><h2>Suas salas</h2></div><button class="btn secondary" onclick="showPage('rooms')">Ver todas as salas →</button></div>
+    <div class="grid roomgrid" id="homeRooms"></div>
+  </section>
+
+  <section class="page" id="rooms">
+    <div class="rooms-layout">
+      <div class="card">
+        <div class="eyebrow">MATCHMAKING</div><h2 style="margin-top:8px">Entrar em uma sala</h2>
+        <p class="sub">Já tem um código? Informe os dados para entrar no lobby.</p>
+        <div class="grid" style="margin-top:18px">
+          <div class="field"><label>Código da sala</label><input id="joinCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ex.: A8K2QZ"></div>
+          <div class="field"><label>Seu nick</label><input id="joinNick" maxlength="24" placeholder="Digite seu nick"></div>
+        </div>
+        <button class="btn" style="margin-top:15px;width:100%" onclick="joinRoom()">Entrar na sala</button>
+        <div style="height:1px;background:var(--line);margin:22px 0"></div>
+        <div class="eyebrow">NOVA PARTIDA</div><h3 style="margin-top:8px">Ainda não tem uma sala?</h3>
+        <p class="sub">Configure uma nova sala e convide os outros jogadores pelo código gerado.</p>
+        <button class="btn secondary" style="width:100%" onclick="openCreate()">＋ Criar nova sala</button>
+      </div>
+      <div>
+        <div class="sectionhead" style="margin-top:0"><div><div class="eyebrow">LOBBY / OPERAÇÕES</div><h2>Salas disponíveis</h2></div></div>
+        <div class="grid roomgrid" id="roomList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="ranking">
+    <div class="rankbanner"><img class="rank-art" src="https://i.imgur.com/vZkmZLX.png" alt="" onerror="this.style.display='none'"><div class="ranktext"><div class="eyebrow">HALL DA DIVISION</div><h2>Quem domina <span class="gold">a arena?</span></h2><p>RESULTADOS DOS COMPETIDORES</p></div></div>
+    <div class="sectionhead"><div><div class="eyebrow">CLASSIFICAÇÃO</div><h2>Desempenho dos jogadores</h2></div></div>
+    <div class="tabs"><button class="active" data-rank="positive">Saldo positivo</button><button data-rank="negative">Saldo negativo</button><button data-rank="wins">Mais vitórias</button><button data-rank="losses">Mais derrotas</button></div>
+    <div class="card tablewrap"><table><thead><tr><th>Posição</th><th>Jogador</th><th>Partidas</th><th>Resultado</th></tr></thead><tbody id="rankRows"></tbody></table></div>
+  </section>
+
+  <section class="page" id="players">
+    <div class="players-intro"><div><div class="eyebrow">COMUNIDADE</div><h2>Jogadores da Division</h2><p class="sub">Conheça os competidores e acompanhe seus números.</p></div><div class="pill">PLAYER ROSTER</div></div>
+    <div class="grid player-cards" id="playerCards"></div>
+  </section>
+
+  <section class="page" id="profile">
+    <div class="profile-layout">
+      <div class="card">
+        <div class="eyebrow">IDENTIDADE DO COMPETIDOR</div><h2 style="margin-top:8px">Seu perfil</h2>
+        <div class="profile-summary"><div id="profilePicPreview" class="avatar">GL</div><div><h3 style="margin:0">Personalize sua identidade</h3><div class="sub">Seu perfil aparece nas salas e na comunidade.</div></div></div>
+        <div class="grid">
+          <div class="field"><label>Nome / nick</label><input id="profileName" maxlength="24"></div>
+          <div class="field"><label>Foto pessoal</label><input type="file" id="profilePicFile" accept="image/*"></div>
+          <div class="field"><label>Bio</label><textarea id="profileBio" rows="3" placeholder="Conte um pouco sobre você..."></textarea></div>
+        </div>
+        <div class="btnrow"><button class="btn" onclick="saveProfile()">Salvar perfil</button><button class="btn danger" type="button" onclick="logoutAccount()">Sair da conta</button></div>
+      </div>
+      <div class="grid profile-stats">
+        <div class="card"><div class="statlabel">PARTIDAS</div><div class="statvalue" id="pMatches">0</div></div>
+        <div class="card"><div class="statlabel">VITÓRIAS</div><div class="statvalue green" id="pWins">0</div></div>
+        <div class="card"><div class="statlabel">WIN RATE</div><div class="statvalue gold" id="pRate">0%</div></div>
+        <div class="card"><div class="statlabel">SALDO INDIVIDUAL</div><div class="statvalue" id="pBalance">R$ 0,00</div></div>
+      </div>
+    </div>
+  </section>
+</main>
 </div>
-
-<div class="modalback" id="modal"><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
-<div class="toast" id="toast"></div>
-
+</div>
+<div class="modalback" id="modal"><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
 'use strict';
 function toggleSidebar(force){const s=document.getElementById('sidebar'),shade=document.getElementById('mobileShade');if(!s||!shade)return;const open=typeof force==='boolean'?force:!s.classList.contains('open');s.classList.toggle('open',open);shade.classList.toggle('show',open)}
-function showDivisionLoader(){const l=document.getElementById('divisionLoader');if(l)l.classList.remove('hide')}
-function hideDivisionLoader(){const l=document.getElementById('divisionLoader');if(l)setTimeout(()=>l.classList.add('hide'),420)}
-window.addEventListener('load',()=>setTimeout(hideDivisionLoader,850));
 const KEY='division_ap_v2';const LEGACY='division_ap_v1';const RESET_MARK='division_ap_test_reset_20261031';let db=loadDB();let pendingProfilePic=null;
 function fresh(){return {me:'Meu perfil',players:[{name:'Meu perfil',pic:'',bio:'',matches:0,wins:0,losses:0,balance:0,profit:0,loss:0,balanceCents:0,profitCents:0,lossCents:0}],rooms:[]}}
 function loadDB(){try{let d=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY)||'null');if(!d)d=fresh();d.players=(d.players||[]).map(p=>({...{pic:'',bio:'',matches:0,wins:0,losses:0,balance:0,profit:0,loss:0},...p}));d.rooms=(d.rooms||[]).map(r=>({...r,history:(r.history||[]).map(h=>({...h,apCents:Number.isInteger(h.apCents)?h.apCents:Math.round((h.ap||0)*100),feeCents:Number.isInteger(h.feeCents)?h.feeCents:Math.round((h.fee||0)*100),sharesCents:h.sharesCents|| (h.shares||[]).map(x=>Math.round(x*100)),totalCents:Number.isInteger(h.totalCents)?h.totalCents:Math.round((h.total||0)*100)}))}));if(!d.players.length)d=fresh();if(!d.players.some(p=>p.name===d.me))d.me=d.players[0].name;localStorage.setItem(KEY,JSON.stringify(d));return d}catch(e){return fresh()}}
@@ -871,7 +1198,7 @@ async function loadCloudState(){
 }
 async function persistCloudState(){if(!currentUser||!cloudReady)return;const ownerId=currentUser.uid,snapshot=JSON.parse(JSON.stringify(db));cloudSaveChain=cloudSaveChain.then(async()=>{if(!currentUser||currentUser.uid!==ownerId)return;await firestore.collection('workspaces').doc(ownerId).set({state:snapshot,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});});try{await cloudSaveChain;}catch(error){console.error('Cloud save error',error);toast('Falha ao sincronizar. Os dados locais foram mantidos.');throw error;}}
 function scheduleCloudSave(){if(!currentUser||!cloudReady)return;clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(()=>persistCloudState().catch(()=>{}),700)}
-async function enterAuthenticatedApp(user){showDivisionLoader();currentUser=user;cloudReady=false;try{await loadCloudState();cloudReady=true;document.getElementById('authGate').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');render();hideDivisionLoader();toast('Bem-vindo ao Frost Rise.');}catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Confira as regras do Firestore e tente novamente.');await auth.signOut();currentUser=null;cloudReady=false;hideDivisionLoader();}}
+async function enterAuthenticatedApp(user){currentUser=user;cloudReady=false;try{await loadCloudState();cloudReady=true;document.getElementById('authGate').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');render();toast('Bem-vindo ao Frost Rise.');}catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Confira as regras do Firestore e tente novamente.');await auth.signOut();currentUser=null;cloudReady=false;}}
 // Login por nick: a Callable Function valida a senha no Firebase Auth e devolve um custom token.
 // Login e cadastro são conectados abaixo diretamente ao Firebase Authentication.
 // Recuperação pelo e-mail cadastrado.
@@ -1411,6 +1738,5 @@ if(joinCodeInput)joinCodeInput.addEventListener('input',()=>{joinCodeInput.value
   }
 })();
 </script>
-</body>
-</html>
-```
+
+</body></html>

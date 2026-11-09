@@ -608,6 +608,145 @@ h1,h2,h3,.eyebrow,.sub{text-wrap:pretty}.topbar{align-items:center}.topbar>div:f
 @media(max-width:560px){.workspace main{padding:20px 12px 42px}.welcome h2{font-size:clamp(30px,8vw,38px);letter-spacing:-1.4px}.welcome p{font-size:12px}.welcome-actions{width:100%;align-items:stretch}.welcome-actions .btn{flex:1;min-width:0;padding:11px 10px}.rankbanner .rank-art{width:48%;opacity:.23}.rankbanner h2{font-size:clamp(28px,7vw,38px)}.sectionhead{gap:10px}.sectionhead .btn{max-width:100%;white-space:normal}}
 @media(prefers-reduced-motion:reduce){#snowfall{display:none}.welcome:before{animation:none!important}.btn,.card,.room,.nav button{transition:none!important}}
 
+
+/* === FROST RISE | revisão visual sem alterar a estrutura ou os sistemas === */
+
+/* Logo oficial: usar o arquivo de imagem nas três áreas da interface. */
+.loader-emblem{
+  display:block!important;
+  width:92px!important;
+  height:92px!important;
+  object-fit:contain!important;
+  margin:0 auto 10px!important;
+  filter:drop-shadow(0 0 22px #80dcff)!important;
+}
+.loader-core:before,
+.authbrand:before,
+.sidebrand:before{content:none!important;display:none!important}
+.authbrand img{
+  display:inline-block!important;
+  width:104px!important;
+  height:104px!important;
+  object-fit:contain!important;
+  margin:0 auto 12px!important;
+  filter:drop-shadow(0 0 22px #80dcff)!important;
+}
+.sidebrand{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  text-align:left!important;
+  gap:11px!important;
+}
+.sidebrand img{
+  display:block!important;
+  width:46px!important;
+  height:46px!important;
+  flex:none!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 14px #80dcff)!important;
+}
+.sidebrand strong,.sidebrand small{display:block!important}
+
+/* Banner principal: mascote maior, visível e separado da área de leitura. */
+.welcome{
+  text-align:left!important;
+  align-items:stretch!important;
+  isolation:isolate;
+  min-height:300px!important;
+}
+.welcome:after{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:50%!important;
+  right:2%!important;
+  bottom:auto!important;
+  width:43%!important;
+  height:94%!important;
+  transform:translateY(-50%)!important;
+  background:url('https://i.imgur.com/vZkmZLX.png') center right/contain no-repeat!important;
+  opacity:.48!important;
+  filter:drop-shadow(0 0 22px #8eeaff65)!important;
+  pointer-events:none!important;
+}
+.welcome-copy{
+  z-index:2!important;
+  width:100%!important;
+  max-width:62%!important;
+  margin:0!important;
+  text-align:left!important;
+}
+.welcome .eyebrow,.welcome h2,.welcome p{margin-left:0!important;margin-right:0!important}
+.welcome p{max-width:440px!important}
+.welcome-actions{justify-content:flex-start!important}
+
+/* Banner do ranking: imagem com presença, sem competir com o título. */
+.rankbanner{isolation:isolate;min-height:158px;display:flex;align-items:center}
+.rankbanner .rank-art{
+  z-index:0;
+  width:46%!important;
+  height:145%!important;
+  top:-20%!important;
+  right:0!important;
+  object-fit:contain!important;
+  object-position:center right!important;
+  opacity:.34!important;
+  filter:drop-shadow(0 0 18px #8eeaff45)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 24%,#000 100%)!important;
+}
+.rankbanner .ranktext{z-index:1;max-width:68%}
+
+/* Ajustes de conteúdo para evitar cortes e rolagem horizontal indevida. */
+.workspace,.workspace main,.page,.grid,.card,.topbar,.sectionhead{min-width:0}
+.tablewrap{width:100%;max-width:100%;overflow-x:auto!important;overscroll-behavior-x:contain}
+.tablewrap table{min-width:520px}
+.tabs{max-width:100%;flex-wrap:wrap}
+.tabs button{white-space:normal;line-height:1.25}
+.btnrow,.welcome-actions{max-width:100%}
+.btn{white-space:normal;overflow-wrap:anywhere}
+input,select,textarea{max-width:100%}
+img{max-width:100%}
+
+/* Mantém a barra lateral e sua largura já definida; adapta somente o conteúdo. */
+@media(max-width:820px){
+  .sidebrand{flex-direction:column!important;justify-content:center!important;text-align:center!important;gap:6px!important}
+  .sidebrand img{width:34px!important;height:34px!important}
+  .sidebrand strong,.sidebrand small{display:none!important}
+  .welcome{min-height:255px!important;padding:18px!important}
+  .welcome-copy{max-width:66%!important}
+  .welcome:after{width:48%!important;height:92%!important;right:0!important;opacity:.42!important}
+  .rankbanner{min-height:132px}
+  .rankbanner .rank-art{width:48%!important;height:130%!important;opacity:.30!important}
+  .rankbanner .ranktext{max-width:72%}
+}
+@media(max-width:560px){
+  .authcard{padding:20px!important}
+  .authbrand img{width:88px!important;height:88px!important}
+  .loader-emblem{width:82px!important;height:82px!important}
+  .welcome{min-height:230px!important;padding:16px!important}
+  .welcome-copy{max-width:72%!important}
+  .welcome h2{font-size:clamp(22px,6.4vw,30px)!important}
+  .welcome p{font-size:10px!important;line-height:1.45!important}
+  .welcome:after{width:52%!important;height:86%!important;right:-2%!important;opacity:.38!important}
+  .welcome-actions{width:auto!important;flex-direction:column!important;align-items:stretch!important}
+  .welcome-actions .btn{width:100%;min-width:0}
+  .rankbanner{min-height:120px;padding:13px!important}
+  .rankbanner .rank-art{width:52%!important;height:120%!important;right:-2%!important;opacity:.28!important}
+  .rankbanner .ranktext{max-width:76%}
+  .rankbanner h2{font-size:clamp(20px,5.8vw,27px)!important}
+  .rankbanner p{font-size:7px!important;letter-spacing:.7px!important}
+  .tabs button{flex:1 1 calc(50% - 5px);min-width:0}
+  .sectionhead{align-items:flex-start!important}
+  .sectionhead .btn{white-space:normal}
+}
+@media(max-width:390px){
+  .welcome-copy{max-width:75%!important}
+  .welcome:after{width:54%!important;opacity:.32!important}
+  .rankbanner .ranktext{max-width:78%}
+}
+
 </style></head><body><div id="snowfall" aria-hidden="true"></div><div id="divisionLoader" aria-label="Carregando FROST RISE"><div class="loader-core"><img class="loader-emblem" src="https://i.imgur.com/xw66v9B.png" alt=""><div class="loader-ring"></div><div class="loader-name">FROST RISE</div><div class="loader-sub">PREPARANDO O GELO</div><div class="loader-line"></div></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/xw66v9B.png" alt="Frost Rise"><div class="eyebrow">FROST CONTROL CENTER</div><h1>FROST RISE</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app auth-hidden" id="divisionApp">
 <aside class="sidebar" id="sidebar">

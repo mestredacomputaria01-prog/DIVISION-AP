@@ -335,6 +335,97 @@ tbody tr:hover{background:#bcecff09}
   .btn,.sidebar .nav button,.card,.rankbanner{animation:none}
 }
 
+
+/* Ajuste mobile: navegação compacta à esquerda, sem divisória e conteúdo com respiro */
+.sidebar{
+  border-right:0!important;
+  box-shadow:none!important;
+}
+.sidebar:after{content:none!important}
+@media(max-width:820px){
+  :root{--rail:76px}
+  .sidebar{
+    width:var(--rail)!important;
+    padding:16px 7px 13px!important;
+    background:rgba(7,24,37,.88)!important;
+    backdrop-filter:blur(14px);
+    border:0!important;
+    box-shadow:none!important;
+  }
+  .sidebrand{
+    padding:5px 0 18px!important;
+    border:0!important;
+  }
+  .sidebrand strong,.sidebrand small,.side-caption,
+  .sidebar-bottom{display:none!important}
+  .sidebrand:before{font-size:29px!important;margin:0!important}
+  .sidebar .nav{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:13px!important;
+    width:100%!important;
+  }
+  .sidebar .nav button{
+    width:48px!important;
+    height:48px!important;
+    min-height:48px!important;
+    padding:0!important;
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:0!important;
+    border:0!important;
+    border-radius:15px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  .sidebar .nav button>span:not(.navicon){display:none!important}
+  .sidebar .nav button .navicon{
+    width:34px!important;
+    height:34px!important;
+    font-size:19px!important;
+    border-radius:11px!important;
+  }
+  .sidebar .nav button i{display:none!important}
+  .sidebar .nav button.active{
+    background:#8bdfff16!important;
+    box-shadow:inset 0 0 0 1px #8bdfff38!important;
+  }
+  .workspace{
+    width:calc(100% - var(--rail))!important;
+    margin-left:var(--rail)!important;
+    min-width:0!important;
+  }
+  .workspace main{
+    padding:25px clamp(14px,3.5vw,24px) 52px!important;
+  }
+  .home-layout,.rooms-layout,.profile-layout{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:20px!important;
+  }
+  .sectionhead{margin-top:27px!important;margin-bottom:16px!important}
+  .card{margin-bottom:4px}
+}
+@media(max-width:560px){
+  :root{--rail:64px}
+  .sidebar{padding:13px 5px 10px!important}
+  .sidebrand{padding-bottom:14px!important}
+  .sidebrand:before{font-size:25px!important}
+  .sidebar .nav{gap:11px!important}
+  .sidebar .nav button{width:44px!important;height:44px!important;min-height:44px!important}
+  .sidebar .nav button .navicon{width:32px!important;height:32px!important;font-size:18px!important}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:20px 13px 42px!important}
+  .home-layout,.rooms-layout,.profile-layout{gap:17px!important}
+  .roomgrid,.player-cards,.formgrid{grid-template-columns:minmax(0,1fr)!important;gap:13px!important}
+  .stats{gap:10px!important}
+  .stats .card{padding:13px!important}
+  .card{padding:16px!important}
+  .welcome{padding:19px!important}
+}
+
 </style></head><body><div id="snowfall" aria-hidden="true"></div><div id="divisionLoader" aria-label="Carregando FROST RISE"><div class="loader-core"><img class="loader-emblem" src="https://i.imgur.com/G32FLG1.png" alt=""><div class="loader-ring"></div><div class="loader-name">FROST RISE</div><div class="loader-sub">PREPARANDO O GELO</div><div class="loader-line"></div></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/UyMZldE.png" alt="Frost Rise"><div class="eyebrow">FROST CONTROL CENTER</div><h1>FROST RISE</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app auth-hidden" id="divisionApp">
 <aside class="sidebar" id="sidebar">

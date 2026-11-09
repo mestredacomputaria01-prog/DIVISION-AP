@@ -35,6 +35,47 @@ input:focus,select:focus,textarea:focus{border-color:#b58bff;box-shadow:0 0 0 3p
 @media(max-width:820px){:root{--rail:0px}.app{display:block!important}.sidebar{width:260px;transform:translateX(-105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);box-shadow:15px 0 55px #0009}.sidebar.open{transform:translateX(0)}.mobile-shade.show{display:block;position:fixed;inset:0;background:#0009;z-index:24;backdrop-filter:blur(3px)}.workspace{width:100%;margin:0}.mobile-top{height:58px;display:flex;align-items:center;gap:13px;padding:0 17px;background:#0b0e18ef;border-bottom:1px solid #a86cff33;position:sticky;top:0;z-index:18;backdrop-filter:blur(14px)}.mobile-top b{font:800 13px 'Space Grotesk';letter-spacing:1px}.menu-toggle{border:1px solid #7656a7;background:#1c1830;color:#d9c2ff;border-radius:9px;width:36px;height:36px;font-size:18px}.mobile-live{margin-left:auto;color:#67e6bb;font-size:9px;letter-spacing:1px}.workspace main{padding:23px 16px 55px}}
 @media(max-width:560px){.welcome{min-height:270px}.welcome:after{width:175px;height:175px;right:-22px;top:58%;opacity:.18}.welcome-copy{max-width:100%}.welcome h2{font-size:38px}.stats{gap:9px}.statvalue{font-size:25px}.card:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Permanent left navigation — never collapses behind a hamburger */
+:root{--rail:246px}
+.sidebar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:var(--rail)!important;transform:none!important;visibility:visible!important}
+.workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+.mobile-top,.mobile-shade,.menu-toggle{display:none!important}
+@media(max-width:820px){
+  :root{--rail:205px}
+  .sidebar{width:var(--rail)!important;padding:20px 11px 15px!important}
+  .sidebrand{gap:8px;padding:3px 3px 20px}
+  .sidebrand img{width:38px;height:38px}
+  .sidebrand strong{font-size:13px}
+  .sidebrand small{font-size:7px;letter-spacing:1.5px}
+  .side-caption{font-size:8px;margin:20px 7px 10px}
+  .sidebar .nav button{gap:8px;padding:11px 8px;font-size:11px}
+  .sidebar .nav button .navicon{width:25px;height:25px;font-size:15px}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:22px 13px 48px}
+  .home-layout,.rooms-layout,.profile-layout{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .roomgrid,.player-cards{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:430px){
+  :root{--rail:158px}
+  .sidebar{padding:16px 7px 12px!important}
+  .sidebrand img{width:31px;height:31px}
+  .sidebrand strong{font-size:11px;letter-spacing:.3px}
+  .sidebrand small{font-size:6px;letter-spacing:1px}
+  .sidebar .nav button{gap:6px;padding:10px 5px;font-size:10px}
+  .sidebar .nav button .navicon{width:22px;height:22px;font-size:13px}
+  .sidebar-bottom{padding:14px 4px 0}
+  .online-mark{font-size:7px}
+  .side-version{font-size:6px;letter-spacing:.5px}
+  .workspace main{padding:18px 10px 40px}
+  .welcome{padding:17px;min-height:240px}
+  .welcome h2{font-size:30px}
+  .stats{gap:7px}
+  .stats .card{padding:11px}
+  .statvalue{font-size:20px}
+}
+
 </style></head><body><div id="divisionLoader" aria-label="Carregando DIVISION AP"><div class="loader-core"><img class="loader-emblem" src="https://i.imgur.com/G32FLG1.png" alt=""><div class="loader-ring"></div><div class="loader-name">DIVISION AP</div><div class="loader-sub">PREPARANDO A ARENA</div><div class="loader-line"></div></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/UyMZldE.png" alt="Grifo DIVISION AP"><div class="eyebrow">CONTROL CENTER</div><h1>DIVISION AP</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app auth-hidden" id="divisionApp">
 <aside class="sidebar" id="sidebar">
@@ -49,9 +90,7 @@ input:focus,select:focus,textarea:focus{border-color:#b58bff;box-shadow:0 0 0 3p
   </nav>
   <div class="sidebar-bottom"><div class="online-mark"><b></b> SISTEMA ONLINE</div><div class="side-version">DIVISION AP <span>•</span> CONTROL CENTER</div></div>
 </aside>
-<div class="mobile-shade" id="mobileShade" onclick="toggleSidebar(false)"></div>
 <div class="workspace">
-  <div class="mobile-top"><button class="menu-toggle" onclick="toggleSidebar()">☰</button><b>DIVISION AP</b><span class="mobile-live">● ONLINE</span></div>
   <main>
   <div class="topbar">
     <div><div class="eyebrow">DIVISION AP / PLAYER AREA</div><h1 id="pageTitle">Painel inicial</h1></div>

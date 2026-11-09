@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><title>DIVISION AP — Control Center</title>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#dff5ff"><title>Frost Rise — Ice Control Center</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#080b10;--surface:#101722;--surface2:#151f2d;--surface3:#1b2939;--line:#263548;--text:#f2f5fa;--muted:#91a0b3;--accent:#e5a64b;--accent2:#f4c778;--green:#4bd4a0;--red:#ff6878;--radius:18px;--shadow:0 18px 50px #0005}
@@ -17,7 +17,7 @@ main{max-width:1440px;margin:auto;padding:32px clamp(16px,3vw,42px) 60px}.topbar
 @media(max-width:900px){.headinner{align-items:flex-start;flex-direction:column;gap:12px}.brand{min-width:0}.nav{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.nav button{white-space:nowrap}.headstatus{position:absolute;right:20px;top:26px}.home-layout{grid-template-columns:1fr}.rooms-layout{grid-template-columns:1fr}.player-cards,.roomgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-layout{grid-template-columns:1fr}}
 @media(max-width:560px){main{padding-top:22px}.topbar{align-items:flex-start;flex-direction:column}.headstatus{top:22px;font-size:0}.headstatus:before{width:9px;height:9px}.nav button{padding:10px 12px;font-size:11px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stats .card{padding:15px}.statvalue{font-size:25px}.welcome{min-height:245px;padding:22px}.welcome h2{font-size:38px}.welcome:after{right:0;bottom:-24px}.performance-bottom{gap:8px}.card{padding:16px;border-radius:15px}.roomgrid,.player-cards,.formgrid{grid-template-columns:1fr}.sectionhead{align-items:flex-start;flex-direction:column}.rankbanner{padding:22px 18px}.profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* DIVISION AP — neon motion / left command rail */
+/* FROST RISE — neon motion / left command rail */
 :root{--neon:#a86cff;--neon2:#56d9ff;--rail:246px}
 body{background:#070910;background-image:radial-gradient(ellipse at 72% 0%,#30205240,transparent 38%),radial-gradient(ellipse at 15% 75%,#132d4b30,transparent 42%)}
 .app{display:flex!important;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:var(--rail);z-index:25;padding:25px 17px 18px;background:linear-gradient(180deg,#101321f7,#090c15f7);border-right:1px solid #8061c52c;box-shadow:10px 0 55px #0005;display:flex;flex-direction:column;overflow:auto}
@@ -76,10 +76,269 @@ input:focus,select:focus,textarea:focus{border-color:#b58bff;box-shadow:0 0 0 3p
   .statvalue{font-size:20px}
 }
 
-</style></head><body><div id="divisionLoader" aria-label="Carregando DIVISION AP"><div class="loader-core"><img class="loader-emblem" src="https://i.imgur.com/G32FLG1.png" alt=""><div class="loader-ring"></div><div class="loader-name">DIVISION AP</div><div class="loader-sub">PREPARANDO A ARENA</div><div class="loader-line"></div></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/UyMZldE.png" alt="Grifo DIVISION AP"><div class="eyebrow">CONTROL CENTER</div><h1>DIVISION AP</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
+
+/* FROST RISE — identidade glacial */
+:root{
+  --bg:#061522;
+  --surface:#0d2638;
+  --surface2:#12344a;
+  --surface3:#1b4962;
+  --line:#39718e;
+  --text:#f4fbff;
+  --muted:#a9c7d8;
+  --accent:#55b9ee;
+  --accent2:#dff6ff;
+  --neon:#70d5ff;
+  --neon2:#e8fbff;
+  --rail:246px;
+  --ice:#bcecff;
+  --snow:#f7fdff;
+}
+html,body{background-color:#061522}
+body{
+  background:
+    radial-gradient(ellipse at 72% -8%,#4bbce82b,transparent 38%),
+    radial-gradient(ellipse at 8% 80%,#bcecff12,transparent 42%),
+    linear-gradient(145deg,#061522,#081d2d 55%,#061522);
+  color:var(--text);
+}
+#divisionLoader{background:radial-gradient(ellipse at 50% 35%,#1c5270 0%,#071a29 52%,#04111c 100%)}
+.loader-ring{border-color:#bcecff55;border-top-color:#f7fdff;border-right-color:#55b9ee;box-shadow:0 0 25px #75d9ff35}
+.loader-line:after{background:linear-gradient(90deg,#55b9ee,#f7fdff);box-shadow:0 0 12px #9ce5ff}
+.loader-sub,.sidebrand small{color:#bcecff}
+.loader-emblem{filter:drop-shadow(0 0 22px #80dcff)}
+.loader-core:before{content:"❄";display:block;font-size:58px;line-height:1;color:#eafaff;text-shadow:0 0 24px #71d5ff;animation:iceFloat 2s ease-in-out infinite}
+.loader-emblem{display:none}
+.authgate{background:radial-gradient(ellipse at 50% 0,#4bbce844,transparent 54%),#061522}
+.authcard,.modal{background:linear-gradient(145deg,#12344a,#091c2b);border-color:#75c9ed66;box-shadow:0 0 55px #4bbce822,0 25px 80px #0009}
+.authbrand img,.sidebrand img{display:none}
+.authbrand:before{content:"❄";display:block;font-size:58px;color:#eafaff;text-shadow:0 0 25px #65d2ff;margin-bottom:8px}
+.authbrand h1{color:#f4fbff;text-shadow:0 0 24px #70d5ff45}
+.auth-tabs button.active{background:#55b9ee2b;color:#effbff;box-shadow:0 0 15px #55b9ee30}
+.auth-msg,.eyebrow{color:#a9e5ff}
+.app{background:transparent}
+.sidebar{
+  background:linear-gradient(180deg,#0d2a3df7,#061724fa);
+  border-right:1px solid #8bdfff3b;
+  box-shadow:10px 0 55px #0006, inset -1px 0 #dff8ff0b;
+}
+.sidebar:before{
+  background:linear-gradient(transparent,#8be0ff,#f7fdff,transparent);
+  filter:drop-shadow(0 0 9px #70d5ff);
+}
+.sidebrand{
+  justify-content:center;
+  text-align:center;
+  padding:8px 5px 25px;
+  position:relative;
+}
+.sidebrand:before{
+  content:"❄";
+  display:block;
+  font-size:34px;
+  line-height:1;
+  color:#eafaff;
+  text-shadow:0 0 18px #70d5ff;
+  margin-right:2px;
+}
+.sidebrand strong{color:#f4fbff;letter-spacing:1.5px}
+.sidebrand small{letter-spacing:2px}
+.side-caption{
+  text-align:center;
+  color:#9bcce2;
+  margin:24px 4px 13px;
+}
+.sidebar .nav{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+}
+.sidebar .nav button{
+  width:100%;
+  min-height:49px;
+  justify-content:center;
+  text-align:center;
+  gap:12px;
+  padding:12px 10px;
+  border-color:#8bdfff16;
+  background:#dff8ff08;
+  color:#c5dfed;
+  border-radius:14px;
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.sidebar .nav button .navicon{
+  background:#bcecff14;
+  color:#bcecff;
+}
+.sidebar .nav button:hover{
+  background:#55b9ee1c;
+  border-color:#8bdfff66;
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px #55b9ee16;
+}
+.sidebar .nav button.active{
+  background:linear-gradient(100deg,#55b9ee38,#dff8ff18);
+  border-color:#9de5ff9c;
+  color:#fff;
+  box-shadow:inset 0 0 22px #8bdfff12,0 0 22px #55b9ee24;
+}
+.sidebar .nav button.active .navicon{
+  background:linear-gradient(135deg,#55b9ee,#dff8ff);
+  color:#07304a;
+  box-shadow:0 0 18px #70d5ff77;
+}
+.sidebar .nav button.active i{background:#e8fbff;box-shadow:0 0 10px #bcecff}
+.sidebar-bottom{text-align:center;border-top-color:#bcecff22}
+.online-mark{color:#a9eaff}
+.online-mark b{background:#8be0ff;box-shadow:0 0 12px #8be0ff}
+.side-version span{color:#9de5ff}
+.workspace main{max-width:1740px}
+.topbar{border-bottom-color:#bcecff20}
+.topbar .eyebrow{color:#a9e5ff}
+.topbar .pill{border-color:#8bdfff55;background:#55b9ee17;color:#dff6ff}
+.card{
+  background:linear-gradient(145deg,#12344aeF,#0a2030f7);
+  border-color:#75c9ed35;
+  box-shadow:0 12px 38px #0004,0 0 0 1px #ffffff04 inset;
+}
+.card:hover{
+  border-color:#8bdfff85;
+  box-shadow:0 16px 42px #0006,0 0 25px #55b9ee19;
+}
+.welcome{
+  background:linear-gradient(120deg,#17435d,#0e2b40 62%,#153b52);
+  border-color:#8bdfff66;
+  box-shadow:0 0 42px #55b9ee1b,inset 0 0 55px #dff8ff09;
+}
+.welcome:after{
+  content:"❄";
+  background:none;
+  width:auto;height:auto;
+  right:5%;bottom:8%;
+  top:auto;
+  transform:none;
+  font:normal clamp(110px,17vw,210px)/1 sans-serif;
+  color:#eafaff0c;
+  filter:drop-shadow(0 0 22px #80dcff);
+}
+.welcome h2{ text-shadow:0 0 22px #55b9ee25 }
+.welcome h2 .gold,.gold,.statvalue.gold,.roomcode,.ranknum{color:#bcecff}
+.welcome .eyebrow{color:#c7f0ff}
+.performance .big{color:#bcecff}
+.btn{
+  background:linear-gradient(110deg,#55b9ee,#a9e5ff);
+  border:1px solid #dff8ff;
+  color:#062338;
+  box-shadow:0 5px 20px #55b9ee35;
+}
+.btn:hover{box-shadow:0 8px 24px #55b9ee48}
+.btn.secondary{background:#173b52;border-color:#70bfe5;color:#eafaff;box-shadow:0 0 16px #55b9ee18}
+.btn.ghost{background:transparent;color:#dff6ff;border-color:#70bfe5}
+.btn.danger{background:#783b50;border-color:#b66b85;color:#fff}
+.btn:after{background:linear-gradient(105deg,transparent 35%,#ffffff80 50%,transparent 65%)}
+input,select,textarea{background:#071b2a;border-color:#42718a;color:#f4fbff}
+input:focus,select:focus,textarea:focus{border-color:#9de5ff;box-shadow:0 0 0 3px #55b9ee24,0 0 16px #55b9ee26}
+.tabs button{background:#0d2a3d;border-color:#42718a;color:#c5dfed}
+.tabs button.active{background:#55b9ee26;color:#eafaff;border-color:#8bdfff;box-shadow:0 0 14px #55b9ee20}
+.rankbanner{background:linear-gradient(110deg,#17435d,#0b263a 72%,#123b53);border-color:#8bdfff66;box-shadow:0 0 35px #55b9ee1b}
+.rankbanner h2 .gold{color:#bcecff}
+.room:before{background:linear-gradient(130deg,#bcecff12,transparent 42%)}
+.roomcode{text-shadow:0 0 17px #55b9ee66}
+.resultbox,.player{background:#081e2e;border-color:#39718e}
+.tablewrap{border-color:#75c9ed35}
+th{color:#a9c7d8}
+tbody tr:hover{background:#bcecff09}
+.modal{border-color:#8bdfff88}
+.toast{background:#12344a;border-color:#8bdfff;box-shadow:0 0 25px #55b9ee33}
+.empty{background:#091f30;border-color:#4b829e;color:#a9c7d8}
+.tag,.pill{background:#15384e;border-color:#5b9bb9;color:#dff6ff}
+.avatar{background:linear-gradient(135deg,#dff6ff,#55b9ee);color:#07304a}
+.rankbanner .rank-art{opacity:.10;filter:saturate(.35) hue-rotate(155deg)}
+/* Coluna de navegação centralizada; conteúdos laterais compactos e bem distribuídos */
+.home-layout{grid-template-columns:minmax(0,1.55fr) minmax(235px,.65fr);gap:22px;align-items:stretch}
+.performance{padding:18px;gap:14px;justify-content:center}
+.performance-main{padding-bottom:13px}
+.performance .big{font-size:clamp(25px,2.5vw,34px)}
+.performance-bottom{gap:12px}
+.performance-bottom .big{font-size:22px}
+.rooms-layout{grid-template-columns:minmax(230px,.62fr) minmax(0,1.55fr);gap:22px}
+.profile-layout{grid-template-columns:minmax(0,1.35fr) minmax(230px,.65fr);gap:22px}
+.profile-stats{gap:12px}
+.grid{gap:16px}
+.stats{gap:13px}
+.card{padding:18px}
+.sectionhead{margin-top:25px;margin-bottom:14px}
+.player-cards{gap:14px}
+.roomgrid{gap:14px}
+.rankbanner{padding:22px 25px}
+@keyframes iceFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+@keyframes snowDrift{0%{transform:translate3d(0,-12vh,0) rotate(0deg);opacity:0}10%{opacity:.85}90%{opacity:.75}100%{transform:translate3d(45px,110vh,0) rotate(360deg);opacity:0}}
+@keyframes frostPulse{0%,100%{box-shadow:0 0 0 #8bdfff00}50%{box-shadow:0 0 22px #8bdfff20}}
+/* Camada de neve leve, sem bloquear cliques */
+#snowfall{position:fixed;inset:0;z-index:12;pointer-events:none;overflow:hidden}
+.snowflake{
+  position:absolute;top:-12vh;left:var(--x);width:var(--s);height:var(--s);
+  border-radius:50%;background:#effbff;opacity:0;
+  box-shadow:0 0 7px #bcecff;
+  animation:snowDrift var(--d) linear var(--delay) infinite;
+}
+.snowflake:nth-child(3n){border-radius:2px;transform:rotate(45deg);background:#bcecff}
+.snowflake:nth-child(5n){filter:blur(1px);opacity:.45}
+.btn,.sidebar .nav button,.card,.rankbanner{animation:frostPulse 7s ease-in-out infinite}
+@media(max-width:900px){
+  .home-layout{grid-template-columns:minmax(0,1fr) minmax(210px,.72fr)}
+  .rooms-layout{grid-template-columns:minmax(210px,.65fr) minmax(0,1.35fr)}
+}
+@media(max-width:820px){
+  :root{--rail:190px}
+  .sidebar .nav{justify-content:center;gap:9px}
+  .sidebar .nav button{min-height:45px;padding:10px 7px;gap:8px;font-size:10px}
+  .sidebrand{flex-direction:column;gap:7px}
+  .sidebrand:before{margin:0}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:22px 14px 48px}
+  .home-layout,.rooms-layout,.profile-layout{grid-template-columns:minmax(0,1fr)}
+  .performance{min-height:170px}
+  .roomgrid,.player-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  :root{--rail:142px}
+  .sidebar{padding:14px 7px 12px!important}
+  .sidebrand strong{font-size:11px;letter-spacing:.5px}
+  .sidebrand small{font-size:6px;letter-spacing:.8px}
+  .side-caption{font-size:7px;letter-spacing:1px;margin:16px 2px 8px}
+  .sidebar .nav{gap:7px}
+  .sidebar .nav button{min-height:42px;font-size:9px;gap:5px;padding:8px 4px}
+  .sidebar .nav button .navicon{width:21px;height:21px;font-size:13px}
+  .sidebar .nav button i{display:none}
+  .sidebar-bottom{padding:13px 2px 0}
+  .online-mark{font-size:6px;letter-spacing:.5px}
+  .side-version{font-size:5px;letter-spacing:0}
+  .workspace{width:calc(100% - var(--rail))!important;margin-left:var(--rail)!important}
+  .workspace main{padding:17px 9px 38px}
+  .home-layout,.rooms-layout,.profile-layout{grid-template-columns:minmax(0,1fr)}
+  .roomgrid,.player-cards,.formgrid{grid-template-columns:minmax(0,1fr)}
+  .card{padding:14px}
+  .welcome{padding:17px;min-height:245px}
+  .welcome h2{font-size:30px}
+  .stats{gap:7px}
+  .stats .card{padding:10px}
+  .statvalue{font-size:19px}
+  .performance-bottom .big{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  #snowfall{display:none}
+  .btn,.sidebar .nav button,.card,.rankbanner{animation:none}
+}
+
+</style></head><body><div id="snowfall" aria-hidden="true"></div><div id="divisionLoader" aria-label="Carregando FROST RISE"><div class="loader-core"><img class="loader-emblem" src="https://i.imgur.com/G32FLG1.png" alt=""><div class="loader-ring"></div><div class="loader-name">FROST RISE</div><div class="loader-sub">PREPARANDO O GELO</div><div class="loader-line"></div></div></div><div class="authgate" id="authGate"><div class="authcard"><div class="authbrand"><img src="https://i.imgur.com/UyMZldE.png" alt="Frost Rise"><div class="eyebrow">FROST CONTROL CENTER</div><h1>FROST RISE</h1><p class="sub">Entre para acessar suas salas, partidas e rankings.</p></div><div class="auth-tabs"><button id="tabLogin" class="active" type="button" onclick="showAuthMode('login')">ENTRAR</button><button id="tabSignup" type="button" onclick="showAuthMode('signup')">CRIAR CONTA</button><button id="tabReset" type="button" onclick="showAuthMode('reset')">RECUPERAR</button></div><form id="loginForm" class="auth-actions"><div class="field"><label>E-mail</label><input id="loginUsername" type="email" autocomplete="username" required></div><div class="field"><label>Senha</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button class="btn" type="submit">ENTRAR NA DIVISION</button></form><form id="signupForm" class="auth-actions auth-hidden"><div class="field"><label>Nome de usuário</label><input id="signupUsername" autocomplete="username" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" required></div><div class="field"><label>E-mail</label><input id="signupEmail" type="email" autocomplete="email" required></div><div class="field"><label>Senha (mínimo 8 caracteres)</label><input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></div><div class="field"><label>Confirmar senha</label><input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required></div><button class="btn" type="submit">CRIAR CONTA</button></form><form id="resetForm" class="auth-actions auth-hidden"><div class="field"><label>E-mail cadastrado</label><input id="resetEmail" type="email" autocomplete="email" required></div><button class="btn" type="submit">ENVIAR LINK DE RECUPERAÇÃO</button></form><form id="newPasswordForm" class="auth-actions auth-hidden"><div class="field"><label>Nova senha</label><input id="newPassword" type="password" minlength="8" required></div><button class="btn" type="submit">SALVAR NOVA SENHA</button></form><div class="auth-msg" id="authMessage" role="status" aria-live="polite"></div><p class="sub">Sua sessão será mantida neste dispositivo. Use somente sua própria conta.</p></div></div>
 <div class="app auth-hidden" id="divisionApp">
 <aside class="sidebar" id="sidebar">
-  <div class="sidebrand"><img src="https://i.imgur.com/G32FLG1.png" alt="DIVISION AP"><div><strong>DIVISION AP</strong><small>GRIFFIN DIVISION</small></div></div>
+  <div class="sidebrand"><img src="https://i.imgur.com/G32FLG1.png" alt="FROST RISE"><div><strong>FROST RISE</strong><small>FROST COMMUNITY</small></div></div>
   <div class="side-caption">MENU PRINCIPAL</div>
   <nav class="nav" aria-label="Navegação principal">
     <button class="active" data-page="home"><span class="navicon">⌂</span><span>Visão geral</span><i></i></button>
@@ -88,12 +347,12 @@ input:focus,select:focus,textarea:focus{border-color:#b58bff;box-shadow:0 0 0 3p
     <button data-page="players"><span class="navicon">◉</span><span>Jogadores</span><i></i></button>
     <button data-page="profile"><span class="navicon">◈</span><span>Meu perfil</span><i></i></button>
   </nav>
-  <div class="sidebar-bottom"><div class="online-mark"><b></b> SISTEMA ONLINE</div><div class="side-version">DIVISION AP <span>•</span> CONTROL CENTER</div></div>
+  <div class="sidebar-bottom"><div class="online-mark"><b></b> SISTEMA ONLINE</div><div class="side-version">FROST RISE <span>•</span> FROST CONTROL CENTER</div></div>
 </aside>
 <div class="workspace">
   <main>
   <div class="topbar">
-    <div><div class="eyebrow">DIVISION AP / PLAYER AREA</div><h1 id="pageTitle">Painel inicial</h1></div>
+    <div><div class="eyebrow">FROST RISE / FROST PLAYER AREA</div><h1 id="pageTitle">Painel inicial</h1></div>
     <div class="pill">ÁREA DO COMPETIDOR</div>
   </div>
 
@@ -203,7 +462,7 @@ const KEY='division_ap_v2';const LEGACY='division_ap_v1';const RESET_MARK='divis
 function fresh(){return {me:'Meu perfil',players:[{name:'Meu perfil',pic:'',bio:'',matches:0,wins:0,losses:0,balance:0,profit:0,loss:0,balanceCents:0,profitCents:0,lossCents:0}],rooms:[]}}
 function loadDB(){try{let d=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY)||'null');if(!d)d=fresh();d.players=(d.players||[]).map(p=>({...{pic:'',bio:'',matches:0,wins:0,losses:0,balance:0,profit:0,loss:0},...p}));d.rooms=(d.rooms||[]).map(r=>({...r,history:(r.history||[]).map(h=>({...h,apCents:Number.isInteger(h.apCents)?h.apCents:Math.round((h.ap||0)*100),feeCents:Number.isInteger(h.feeCents)?h.feeCents:Math.round((h.fee||0)*100),sharesCents:h.sharesCents|| (h.shares||[]).map(x=>Math.round(x*100)),totalCents:Number.isInteger(h.totalCents)?h.totalCents:Math.round((h.total||0)*100)}))}));if(!d.players.length)d=fresh();if(!d.players.some(p=>p.name===d.me))d.me=d.players[0].name;localStorage.setItem(KEY,JSON.stringify(d));return d}catch(e){return fresh()}}
 function save(){localStorage.setItem(KEY,JSON.stringify(db));scheduleCloudSave()}
-function moneyC(c){return 'R$ '+(Math.abs(c)/100).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}function signedC(c){return (c>=0?'+':'−')+moneyC(c)}function money(n){return moneyC(Math.round(n*100))}function player(n){return db.players.find(p=>p.name===n)}function initials(n){return n.split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase()}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function avatar(p,cls=''){return `<div class="avatar ${cls}">${p.pic?`<img src="${esc(p.pic)}" alt="Foto de ${esc(p.name)}" onerror="this.remove()">`:esc(initials(p.name))}</div>`}function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}function showPage(id){toggleSidebar(false);window.scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('pageTitle').textContent=({home:'CENTRAL DE COMANDO',rooms:'SALAS DE AP',ranking:'DIVISION RANK',players:'JOGADORES',profile:'MEU PERFIL'})[id];render()}document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));function openModal(html){document.getElementById('modalContent').innerHTML=html;document.getElementById('modal').classList.add('show')}function closeModal(){document.getElementById('modal').classList.remove('show')}async function logoutAccount(){if(!confirm('Deseja sair da sua conta DIVISION AP?'))return;try{clearTimeout(cloudSaveTimer);await persistCloudState();await auth.signOut();}catch(e){toast('Não foi possível sincronizar/encerrar a sessão. Tente novamente.');return}currentUser=null;document.getElementById('authGate').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-ready');showAuthMode('login');toast('Sessão encerrada.')}
+function moneyC(c){return 'R$ '+(Math.abs(c)/100).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}function signedC(c){return (c>=0?'+':'−')+moneyC(c)}function money(n){return moneyC(Math.round(n*100))}function player(n){return db.players.find(p=>p.name===n)}function initials(n){return n.split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase()}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function avatar(p,cls=''){return `<div class="avatar ${cls}">${p.pic?`<img src="${esc(p.pic)}" alt="Foto de ${esc(p.name)}" onerror="this.remove()">`:esc(initials(p.name))}</div>`}function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}function showPage(id){toggleSidebar(false);window.scrollTo({top:0,behavior:'smooth'});document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('pageTitle').textContent=({home:'CENTRAL DE COMANDO',rooms:'SALAS DE AP',ranking:'DIVISION RANK',players:'JOGADORES',profile:'MEU PERFIL'})[id];render()}document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));function openModal(html){document.getElementById('modalContent').innerHTML=html;document.getElementById('modal').classList.add('show')}function closeModal(){document.getElementById('modal').classList.remove('show')}async function logoutAccount(){if(!confirm('Deseja sair da sua conta FROST RISE?'))return;try{clearTimeout(cloudSaveTimer);await persistCloudState();await auth.signOut();}catch(e){toast('Não foi possível sincronizar/encerrar a sessão. Tente novamente.');return}currentUser=null;document.getElementById('authGate').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-ready');showAuthMode('login');toast('Sessão encerrada.')}
 function distributeCents(totalCents,n,hostIndex){if(!Number.isSafeInteger(totalCents)||n<1)throw Error('Distribuição inválida');let sign=Math.sign(totalCents),abs=Math.abs(totalCents),base=Math.floor(abs/n),rem=abs%n,shares=Array(n).fill(base*sign);for(let j=0;j<rem;j++)shares[(hostIndex+j)%n]+=sign;return shares}
 function parseCents(v){let s=String(v).trim().replace(/\s/g,'').replace(/R\$/i,'');if(!s)return NaN;if(s.includes(',')){s=s.replace(/\./g,'').replace(',','.')}let n=Number(s);return Number.isFinite(n)&&n>=0?Math.round(n*100):NaN}function configure(code){let r=db.rooms.find(x=>x.code===code);if(!r||r.status==='closed'||r.current)return;let firstRound=r.history.length===0,opts=r.players.map(n=>`<option ${r.lastHost===n?'selected':''}>${esc(n)}</option>`).join('');openModal(`<div class="eyebrow">MATCH SETUP</div><h2>Configurar AP</h2><div class="formgrid"><div class="field"><label>Valor do AP (R$)</label><input id="apValue" inputmode="decimal" placeholder="Ex.: 150,00" value="${r.lastAp!=null?(r.lastAp/100).toFixed(2).replace('.',','):''}"></div><div class="field"><label>Juros do AP (R$)</label><input id="apFee" inputmode="decimal" placeholder="Ex.: 1,00" value="${r.lastFee!=null?(r.lastFee/100).toFixed(2).replace('.',','):''}"></div>${firstRound?`<div class="field" style="grid-column:1/-1"><label>Selecionar HOST (somente 1ª rodada)</label><select id="apHost">${opts}</select></div>`:`<div class="field" style="grid-column:1/-1"><label>HOST</label><input value="Não existe HOST após a 1ª rodada" disabled></div>`}</div><div class="btnrow"><button class="btn" onclick="confirmSetup('${code}')">REVISAR CONFIGURAÇÃO</button></div>`)}function confirmSetup(code){let apCents=parseCents(document.getElementById('apValue').value),feeCents=parseCents(document.getElementById('apFee').value),r=db.rooms.find(x=>x.code===code),host=r.history.length===0?document.getElementById('apHost')?.value:null;if(!Number.isSafeInteger(apCents)||!Number.isSafeInteger(feeCents))return toast('Informe valores válidos.');r.pending={apCents,feeCents,host};openModal(`<div class="eyebrow">FINAL CHECK</div><h2>Confirmar partida</h2><div class="resultbox"><div class="resultrow"><span>Modalidade</span><b>X${r.size}</b></div><div class="resultrow"><span>Valor AP</span><b>${moneyC(apCents)}</b></div><div class="resultrow"><span>Juros</span><b>${moneyC(feeCents)}</b></div><div class="resultrow"><span>HOST</span><b>${host?esc(host):'Não existe após a 1ª rodada'}</b></div></div><div class="btnrow"><button class="btn" onclick="startMatch('${code}')">CONFIRMAR E INICIAR</button><button class="btn ghost" onclick="configure('${code}')">VOLTAR</button></div>`)}function startMatch(code){let r=db.rooms.find(x=>x.code===code);if(!r||r.status==='closed'||!r.pending)return;r.current=r.pending;r.lastAp=r.pending.apCents;r.lastFee=r.pending.feeCents;r.lastHost=r.pending.host;delete r.pending;save();openRoom(code);toast('AP iniciado.')}
 // Distribui centavos inteiros: prioridade do HOST e depois a ordem da sala.
@@ -212,7 +471,7 @@ function recordResult(code,result){let r=db.rooms.find(x=>x.code===code);if(!r||
 function roomReport(code,type){let r=db.rooms.find(x=>x.code===code);let total=0,rows=[];r.history.forEach((h,i)=>h.players.forEach((name,j)=>{let v=h.sharesCents?.[j]??0;if(type==='profit'&&v>0){total+=v;rows.push(`<div class="resultrow"><span>Partida ${i+1} · ${esc(name)}</span><b class="green">${signedC(v)}</b></div>`)}if(type==='loss'&&v<0){total+=Math.abs(v);rows.push(`<div class="resultrow"><span>Partida ${i+1} · ${esc(name)}</span><b class="red">${signedC(v)}</b></div>`)}}));openModal(`<div class="eyebrow">ROOM FINANCIAL REPORT</div><h2>${type==='profit'?'Lucros do AP':'Prejuízos do AP'}</h2><div class="statvalue ${type==='profit'?'green':'red'}">${moneyC(total)}</div><p class="sub">Total acumulado por jogador em todas as partidas desta sala.</p><div class="resultbox">${rows.join('')||'<div class="sub">Nenhum registro nesta categoria.</div>'}</div>`)}function closeRoom(code){let r=db.rooms.find(x=>x.code===code);if(!r||r.status==='closed')return;if(!confirm('Encerrar esta sala? O histórico será preservado.'))return;r.status='closed';r.current=null;delete r.pending;save();render();openRoom(code);toast('Sala encerrada e arquivada.')}
 function previewProfilePhoto(){let f=document.getElementById('profilePicFile').files[0];if(!f)return;if(!f.type.startsWith('image/'))return toast('Selecione uma imagem.');let rd=new FileReader();rd.onload=()=>{let im=new Image();im.onload=()=>{let c=document.createElement('canvas'),ctx=c.getContext('2d'),scale=Math.min(1,512/Math.max(im.width,im.height));c.width=Math.round(im.width*scale);c.height=Math.round(im.height*scale);ctx.drawImage(im,0,0,c.width,c.height);pendingProfilePic=c.toDataURL('image/jpeg',.82);document.getElementById('profilePicPreview').innerHTML='<img src="'+pendingProfilePic+'">'};im.src=rd.result};rd.readAsDataURL(f)}document.addEventListener('change',e=>{if(e.target?.id==='profilePicFile')previewProfilePhoto()});function saveProfile(){let p=player(db.me);if(!p)return;let old=p.name,newName=document.getElementById('profileName').value.trim()||old;if(newName!==old&&player(newName))return toast('Esse nick já está em uso.');p.name=newName;db.rooms.forEach(r=>{r.players=r.players.map(n=>n===old?newName:n);r.history.forEach(h=>{h.players=h.players.map(n=>n===old?newName:n);if(h.host===old)h.host=newName});if(r.current?.host===old)r.current.host=newName;if(r.lastHost===old)r.lastHost=newName});db.me=newName;if(pendingProfilePic)p.pic=pendingProfilePic;p.bio=document.getElementById('profileBio').value.trim();pendingProfilePic=null;save();render();toast('Perfil atualizado.')}
 function renderRooms(){let active=db.rooms.filter(r=>r.status!=='closed'),empty='<div class="empty">Nenhuma sala disponível.</div>';let html=active.map(r=>`<div class="card room" onclick="openRoom('${r.code}')"><div class="eyebrow">ROOM / OPERAÇÃO</div><div class="roomcode">${r.code}</div><div class="sub">X${r.size} · ${r.players.length}/${r.size} jogadores</div><div class="btnrow"><span class="tag">${r.players.length===r.size?'LOBBY COMPLETO':'AGUARDANDO'}</span></div></div>`).join('')||empty;document.getElementById('roomList').innerHTML=html;document.getElementById('homeRooms').innerHTML=html}
-function render(){let me=player(db.me)||db.players[0];if(!me)return;let bal=me.balanceCents??Math.round((me.balance||0)*100),profit=me.profitCents??Math.round((me.profit||0)*100),loss=me.lossCents??Math.round((me.loss||0)*100),rate=me.matches?Math.round(me.wins/me.matches*100):0;document.getElementById('homeBalance').textContent=signedC(bal);document.getElementById('homeRate').textContent=rate+'%';const mirror=document.getElementById('homeRateMirror');if(mirror)mirror.textContent=rate+'%';document.getElementById('homeMatches').textContent=me.matches+' partidas disputadas';document.getElementById('statMatches').textContent=me.matches;document.getElementById('statWins').textContent=me.wins;document.getElementById('statProfit').textContent=moneyC(profit);document.getElementById('statLoss').textContent=moneyC(loss);document.getElementById('profileName').value=me.name;document.getElementById('profilePicPreview').innerHTML=me.pic?'<img src="'+esc(me.pic)+'">':initials(me.name);document.getElementById('profileBio').value=me.bio||'';document.getElementById('pMatches').textContent=me.matches;document.getElementById('pWins').textContent=me.wins;document.getElementById('pRate').textContent=rate+'%';document.getElementById('pBalance').textContent=signedC(bal);renderRooms();document.getElementById('playerCards').innerHTML=db.players.map(p=>`<div class="card"><div class="player">${avatar(p)}<div class="meta"><b>${esc(p.name)}</b><small>${esc(p.bio||'Competidor DIVISION AP')}</small></div></div><div class="resultrow"><span>Partidas</span><b>${p.matches}</b></div><div class="resultrow"><span>WIN RATE</span><b class="gold">${p.matches?Math.round(p.wins/p.matches*100):0}%</b></div><div class="resultrow"><span>Saldo virtual</span><b class="${balClass(p)}">${signedC(p.balanceCents??Math.round((p.balance||0)*100))}</b></div></div>`).join('');let activeRank=document.querySelector('[data-rank].active')?.dataset.rank||'positive';renderRanking(activeRank)}function balClass(p){return (p.balanceCents??Math.round((p.balance||0)*100))>=0?'green':'red'}function renderRanking(type){let arr=[...db.players];arr.sort((a,b)=>type==='positive'?getBal(b)-getBal(a):type==='negative'?getBal(a)-getBal(b):type==='wins'?b.wins-a.wins:b.losses-a.losses);document.getElementById('rankRows').innerHTML=arr.map((p,i)=>`<tr><td><span class="ranknum">${String(i+1).padStart(2,'0')}</span></td><td><div class="rankname">${avatar(p,'rankavatar')}<b>${esc(p.name)}</b></div></td><td>${p.matches}</td><td class="${type==='negative'||type==='losses'?'red':'gold'}">${type==='positive'||type==='negative'?signedC(getBal(p)):type==='wins'?p.wins:p.losses}</td></tr>`).join('')||'<tr><td colspan="4">Sem jogadores.</td></tr>'}function getBal(p){return p.balanceCents??Math.round((p.balance||0)*100)}document.querySelectorAll('[data-rank]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-rank]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderRanking(b.dataset.rank)});
+function render(){let me=player(db.me)||db.players[0];if(!me)return;let bal=me.balanceCents??Math.round((me.balance||0)*100),profit=me.profitCents??Math.round((me.profit||0)*100),loss=me.lossCents??Math.round((me.loss||0)*100),rate=me.matches?Math.round(me.wins/me.matches*100):0;document.getElementById('homeBalance').textContent=signedC(bal);document.getElementById('homeRate').textContent=rate+'%';const mirror=document.getElementById('homeRateMirror');if(mirror)mirror.textContent=rate+'%';document.getElementById('homeMatches').textContent=me.matches+' partidas disputadas';document.getElementById('statMatches').textContent=me.matches;document.getElementById('statWins').textContent=me.wins;document.getElementById('statProfit').textContent=moneyC(profit);document.getElementById('statLoss').textContent=moneyC(loss);document.getElementById('profileName').value=me.name;document.getElementById('profilePicPreview').innerHTML=me.pic?'<img src="'+esc(me.pic)+'">':initials(me.name);document.getElementById('profileBio').value=me.bio||'';document.getElementById('pMatches').textContent=me.matches;document.getElementById('pWins').textContent=me.wins;document.getElementById('pRate').textContent=rate+'%';document.getElementById('pBalance').textContent=signedC(bal);renderRooms();document.getElementById('playerCards').innerHTML=db.players.map(p=>`<div class="card"><div class="player">${avatar(p)}<div class="meta"><b>${esc(p.name)}</b><small>${esc(p.bio||'Competidor Frost Rise')}</small></div></div><div class="resultrow"><span>Partidas</span><b>${p.matches}</b></div><div class="resultrow"><span>WIN RATE</span><b class="gold">${p.matches?Math.round(p.wins/p.matches*100):0}%</b></div><div class="resultrow"><span>Saldo virtual</span><b class="${balClass(p)}">${signedC(p.balanceCents??Math.round((p.balance||0)*100))}</b></div></div>`).join('');let activeRank=document.querySelector('[data-rank].active')?.dataset.rank||'positive';renderRanking(activeRank)}function balClass(p){return (p.balanceCents??Math.round((p.balance||0)*100))>=0?'green':'red'}function renderRanking(type){let arr=[...db.players];arr.sort((a,b)=>type==='positive'?getBal(b)-getBal(a):type==='negative'?getBal(a)-getBal(b):type==='wins'?b.wins-a.wins:b.losses-a.losses);document.getElementById('rankRows').innerHTML=arr.map((p,i)=>`<tr><td><span class="ranknum">${String(i+1).padStart(2,'0')}</span></td><td><div class="rankname">${avatar(p,'rankavatar')}<b>${esc(p.name)}</b></div></td><td>${p.matches}</td><td class="${type==='negative'||type==='losses'?'red':'gold'}">${type==='positive'||type==='negative'?signedC(getBal(p)):type==='wins'?p.wins:p.losses}</td></tr>`).join('')||'<tr><td colspan="4">Sem jogadores.</td></tr>'}function getBal(p){return p.balanceCents??Math.round((p.balance||0)*100)}document.querySelectorAll('[data-rank]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-rank]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderRanking(b.dataset.rank)});
 // Firebase Authentication + Firestore: estado privado por conta.
 // Configure sua apiKey no objeto abaixo antes de publicar.
 const firebaseConfig={
@@ -242,7 +501,7 @@ async function loadCloudState(){
 }
 async function persistCloudState(){if(!currentUser||!cloudReady)return;const ownerId=currentUser.uid,snapshot=JSON.parse(JSON.stringify(db));cloudSaveChain=cloudSaveChain.then(async()=>{if(!currentUser||currentUser.uid!==ownerId)return;await firestore.collection('workspaces').doc(ownerId).set({state:snapshot,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});});try{await cloudSaveChain;}catch(error){console.error('Cloud save error',error);toast('Falha ao sincronizar. Os dados locais foram mantidos.');throw error;}}
 function scheduleCloudSave(){if(!currentUser||!cloudReady)return;clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(()=>persistCloudState().catch(()=>{}),700)}
-async function enterAuthenticatedApp(user){showDivisionLoader();currentUser=user;cloudReady=false;try{await loadCloudState();cloudReady=true;document.getElementById('authGate').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');render();hideDivisionLoader();toast('Bem-vindo ao DIVISION AP.');}catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Confira as regras do Firestore e tente novamente.');await auth.signOut();currentUser=null;cloudReady=false;hideDivisionLoader();}}
+async function enterAuthenticatedApp(user){showDivisionLoader();currentUser=user;cloudReady=false;try{await loadCloudState();cloudReady=true;document.getElementById('authGate').classList.add('auth-hidden');document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');render();hideDivisionLoader();toast('Bem-vindo ao Frost Rise.');}catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Confira as regras do Firestore e tente novamente.');await auth.signOut();currentUser=null;cloudReady=false;hideDivisionLoader();}}
 // Login por nick: a Callable Function valida a senha no Firebase Auth e devolve um custom token.
 // Login e cadastro são conectados abaixo diretamente ao Firebase Authentication.
 // Recuperação pelo e-mail cadastrado.
@@ -254,7 +513,7 @@ async function safeCloudFlush(){if(currentUser&&cloudReady){clearTimeout(cloudSa
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')safeCloudFlush()});window.addEventListener('pagehide',()=>{safeCloudFlush()});
 
 
-/* DIVISION AP — camada compartilhada Firestore (sem Cloud Functions) */
+/* FROST RISE — camada compartilhada Firestore (sem Cloud Functions) */
 let roomUnsub=null, rankUnsub=null, profileUnsub=null, activeRoomCode=null, publicProfiles={};
 const roomsCol=()=>firestore.collection('rooms');
 const matchesCol=()=>firestore.collection('matches');
@@ -306,7 +565,7 @@ async function enterAuthenticatedApp(user){
  document.getElementById('joinNick').value=db.me;
  document.getElementById('authGate').classList.add('auth-hidden');
  document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');
- listenRanking();await refreshMyRooms();render();showRoomListRemoved();toast('Bem-vindo ao DIVISION AP.');
+ listenRanking();await refreshMyRooms();render();showRoomListRemoved();toast('Bem-vindo ao Frost Rise.');
  }catch(e){console.error(e);authMessage('Não foi possível carregar seus dados. Verifique as regras do Firestore.');await auth.signOut();currentUser=null;cloudReady=false;}
 }
 function showRoomListRemoved(){} // O container da lista agora faz parte da interface de salas.
@@ -400,7 +659,7 @@ async function saveProfile(){
  pendingProfilePic=null;render();toast('Perfil atualizado.');}
  catch(e){console.error(e);toast('Não foi possível salvar o perfil.')}
 }
-async function logoutAccount(){if(!confirm('Deseja sair da sua conta DIVISION AP?'))return;try{stopRoomListener();if(rankUnsub)rankUnsub();await auth.signOut();}catch(e){toast('Não foi possível encerrar a sessão.');}}
+async function logoutAccount(){if(!confirm('Deseja sair da sua conta FROST RISE?'))return;try{stopRoomListener();if(rankUnsub)rankUnsub();await auth.signOut();}catch(e){toast('Não foi possível encerrar a sessão.');}}
 /* Autenticação direta por e-mail/senha; cadastro mantém reserva atômica do nick. */
 document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();e.stopImmediatePropagation();const email=document.getElementById('loginUsername').value.trim(),password=document.getElementById('loginPassword').value;authMessage('Autenticando...');try{await auth.signInWithEmailAndPassword(email,password);}catch(err){console.error(err);authMessage('Não foi possível entrar. Confira e-mail e senha.');}},true);
 document.getElementById('signupForm').addEventListener('submit',async e=>{e.preventDefault();e.stopImmediatePropagation();const username=document.getElementById('signupUsername').value.trim(),email=document.getElementById('signupEmail').value.trim(),password=document.getElementById('signupPassword').value,confirmPassword=document.getElementById('signupPasswordConfirm').value;if(!validateUsername(username))return authMessage('Nick: 3 a 20 caracteres, somente letras, números e _.');if(password.length<8)return authMessage('A senha precisa ter pelo menos 8 caracteres.');if(password!==confirmPassword)return authMessage('As senhas não coincidem.');authMessage('Criando conta...');let credential=null;authFlowInProgress=true;try{credential=await auth.createUserWithEmailAndPassword(email,password);const key=usernameKey(username);await firestore.runTransaction(async tx=>{const nr=firestore.collection('usernames').doc(key),ur=firestore.collection('users').doc(credential.user.uid),n=await tx.get(nr);if(n.exists)throw Error('NICK_TAKEN');tx.set(nr,{uid:credential.user.uid});tx.set(ur,{uid:credential.user.uid,nick:username,createdAt:firebase.firestore.FieldValue.serverTimestamp()});});await credential.user.sendEmailVerification();await enterAuthenticatedApp(credential.user);authMessage('Conta criada! Enviamos uma confirmação para seu e-mail.');}catch(err){console.error(err);if(credential&&err.message==='NICK_TAKEN')try{await credential.user.delete()}catch(_){}authMessage(err.message==='NICK_TAKEN'?'Esse nick já está em uso.':err.code==='auth/email-already-in-use'?'Este e-mail já está cadastrado.':'Não foi possível criar a conta.');}finally{authFlowInProgress=false;}},true);
@@ -412,7 +671,7 @@ showRoomListRemoved();
 
 render();
 
-/* DIVISION AP — correções integradas de compatibilidade, salas e perfis */
+/* FROST RISE — correções integradas de compatibilidade, salas e perfis */
 
 let pendingSetupData=null;
 async function confirmSetup(code) {
@@ -582,7 +841,7 @@ function renderPublicPlayers() {
   const stats=window.globalDivisionStats||[],profiles=Object.values(publicProfiles||{});
   const byUid=new Map(stats.map(x=>[x.uid,x]));
   const merged=profiles.map(pr=>{const s=byUid.get(pr.uid)||{};return {
-    name:pr.nick||s.name||'Jogador',pic:pr.pic||'',bio:pr.bio||'Competidor DIVISION AP',
+    name:pr.nick||s.name||'Jogador',pic:pr.pic||'',bio:pr.bio||'Competidor Frost Rise',
     matches:s.matches||0,wins:s.wins||0,balanceCents:s.rankBalanceCents??s.balanceCents??0
   }});
   target.innerHTML=merged.map(p=>`<div class="card"><div class="player">${avatar(p)}<div class="meta"><b>${esc(p.name)}</b><small>${esc(p.bio)}</small></div></div>
@@ -624,7 +883,7 @@ async function enterAuthenticatedApp(user) {
     const nickInput=document.getElementById('joinNick');if(nickInput)nickInput.value=db.me;
     document.getElementById('authGate').classList.add('auth-hidden');
     document.querySelector('.app').classList.remove('auth-hidden');document.querySelector('.app').classList.add('auth-ready');
-    listenRanking();listenPublicProfiles();await refreshMyRooms();render();toast('Bem-vindo ao DIVISION AP.');
+    listenRanking();listenPublicProfiles();await refreshMyRooms();render();toast('Bem-vindo ao Frost Rise.');
   } catch(e) {
     console.error('Falha ao inicializar conta',e);
     authMessage('Não foi possível carregar os dados. Nenhum dado existente foi apagado; confira as permissões do Firestore.');
@@ -764,4 +1023,22 @@ window.addEventListener('beforeunload',()=>{
 const joinCodeInput=document.getElementById('joinCode');
 if(joinCodeInput)joinCodeInput.addEventListener('input',()=>{joinCodeInput.value=joinCodeInput.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6)});
 
-</script></body></html>
+</script>
+<script>
+(function(){
+  const layer=document.getElementById('snowfall');
+  if(!layer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const count=34;
+  for(let i=0;i<count;i++){
+    const flake=document.createElement('i');
+    flake.className='snowflake';
+    flake.style.setProperty('--x',(Math.random()*100)+'%');
+    flake.style.setProperty('--s',(2+Math.random()*5)+'px');
+    flake.style.setProperty('--d',(11+Math.random()*17)+'s');
+    flake.style.setProperty('--delay',(-Math.random()*28)+'s');
+    layer.appendChild(flake);
+  }
+})();
+</script>
+
+</body></html>
